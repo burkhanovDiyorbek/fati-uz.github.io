@@ -1,7 +1,7 @@
 .header {
   width: 98.7vw;
   height: 500px;
-  background: url("../../src/assets/about-header.jpg");
+  background: url("./assets/about-header.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
