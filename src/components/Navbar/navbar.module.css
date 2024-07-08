@@ -1,0 +1,135 @@
+.navbar {
+  border-bottom: 1px solid #333ce285;
+  .container {
+    align-items: center;
+  }
+  div {
+    display: flex;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  ul {
+    display: flex;
+    align-items: center;
+    li {
+      padding: 32px;
+      border-right: 1px solid grey;
+      font-size: 14px;
+      &:hover {
+        background: #000;
+        color: #fff;
+      }
+    }
+  }
+  .more_content {
+    position: absolute;
+    top: 85px;
+    width: 100vw;
+    background: #fff;
+    display: flex;
+    left: 0;
+    justify-content: center;
+    border-top: 1px solid #333ce2;
+    z-index: 10000;
+    li {
+      font-size: 14px;
+      border-right: none;
+      padding: 12px;
+      &:hover {
+        background: transparent;
+        color: #000;
+        a {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+  .more,
+  .search {
+    display: flex;
+    align-items: center;
+    padding: 32px;
+    cursor: pointer;
+    border-right: 1px solid grey;
+    font-family: "Poppins", sans-serif;
+    p {
+      font-size: 14px;
+      font-weight: 700;
+    }
+    svg {
+      width: 40px;
+      path {
+        fill: #000;
+      }
+    }
+    &:hover {
+      background: #000;
+      color: #fff;
+      svg {
+        path {
+          fill: #fff;
+        }
+      }
+    }
+  }
+  .search {
+    border-right: none;
+    svg {
+      width: 40px;
+    }
+  }
+  .lang {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+      background: #000;
+      color: #fff;
+    }
+    span {
+      padding: 0 5px;
+      display: block;
+      cursor: pointer;
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  .more_content {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 640px) {
+  .navbar {
+    .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        max-width: 200px !important;
+        width: 100%;
+      }
+    }
+  }
+  .more_content{
+    top: 70px!important;
+  }
+}
+
+@media (max-width: 450px) {
+  .navbar{
+    padding: 5px;
+  }
+  .more,
+  .search{
+    padding: 12px 5px !important;
+    border: none!important;
+    p{
+      display: none;
+    }
+  }
+  svg{
+    width: 20px!important;
+  }
+}

@@ -1,0 +1,22 @@
+.top {
+  padding: 100px 50px;
+  background: #333c2e;
+  color: #fff;
+  margin-bottom: 70px;
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    h2 {
+      font-size: 80px;
+      font-family: "Poppins", sans-serif;
+    }
+    p {
+      max-width: 400px;
+    }
+  }
+}
+
+.section{
+ margin-bottom: 70px;
+}
