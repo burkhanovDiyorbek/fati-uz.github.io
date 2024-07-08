@@ -77,7 +77,7 @@ export const About = () => {
                 </ul>
               </div>
               <div className="picture">
-                <img src="../../src/assets/user.jpg" alt="user" />
+                <img src="../src/assets/user.jpg" alt="user" />
               </div>
             </div>
             <div className="card">
@@ -101,7 +101,7 @@ export const About = () => {
                 </ul>
               </div>
               <div className="picture">
-                <img src="../../src/assets/user.jpg" alt="user" />
+                <img src="../src/assets/user.jpg" alt="user" />
               </div>
             </div>
             <div className="card">
@@ -125,7 +125,7 @@ export const About = () => {
                 </ul>
               </div>
               <div className="picture">
-                <img src="../../src/assets/user.jpg" alt="user" />
+                <img src="../src/assets/user.jpg" alt="user" />
               </div>
             </div>
             <div className="card">
@@ -149,7 +149,7 @@ export const About = () => {
                 </ul>
               </div>
               <div className="picture">
-                <img src="../../src/assets/user.jpg" alt="user" />
+                <img src="../src/assets/user.jpg" alt="user" />
               </div>
             </div>
           </div>
@@ -157,7 +157,7 @@ export const About = () => {
       </div>
       <div className="container">
         <div className="section-slice">
-          <div className="row1 green">
+          <div className="row1">
             <h2>{t("contact")}</h2>
           </div>
           <div className="row2">

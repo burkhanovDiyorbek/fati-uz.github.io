@@ -25,7 +25,7 @@ export const Library = () => {
         <div className="section-slice">
           <div className="row1">
             <h2>Tahririyat</h2>
-            <img src="../../src/assets/journal.jpg" alt="book jpg" />
+            <img src="../src/assets/journal.jpg" alt="book jpg" />
           </div>
           <div className="row2">
             <ul>
@@ -81,7 +81,7 @@ export const Library = () => {
       <div className="aside blue">
         <div className="aside-container">
           <div className="aside-img">
-            <img src="../../src/assets/journal.jpg" alt="journal" />
+            <img src="../src/assets/journal.jpg" alt="journal" />
           </div>
           <div className="aside-content">
             <h2>“O‘zbekiston tarixi” jurnali</h2>
@@ -198,55 +198,55 @@ export const Library = () => {
           <div className="img-cards">
             <div className="cards">
               <div className="card">
-                <img src="../../src/assets/book-img.jpg" alt="book img" />
+                <img src="../src/assets/book-img.jpg" alt="book img" />
                 <h3>Investing in a 21st Century Educational Research System</h3>
                 <img
-                  src="../../src/assets/icons/arrow.svg "
+                  src="../src/assets/icons/arrow.svg "
                   alt="arrow img"
                   className="arrow"
                 />
               </div>
               <div className="card">
-                <img src="../../src/assets/book-img.jpg" alt="book img" />
+                <img src="../src/assets/book-img.jpg" alt="book img" />
                 <h3>Investing in a 21st Century Educational Research System</h3>
                 <img
-                  src="../../src/assets/icons/arrow.svg "
+                  src="../src/assets/icons/arrow.svg "
                   alt="arrow img"
                   className="arrow"
                 />
               </div>
               <div className="card">
-                <img src="../../src/assets/book-img.jpg" alt="book img" />
+                <img src="../src/assets/book-img.jpg" alt="book img" />
                 <h3>Investing in a 21st Century Educational Research System</h3>
                 <img
-                  src="../../src/assets/icons/arrow.svg "
+                  src="../src/assets/icons/arrow.svg "
                   alt="arrow img"
                   className="arrow"
                 />
               </div>
               <div className="card">
-                <img src="../../src/assets/book-img.jpg" alt="book img" />
+                <img src="../src/assets/book-img.jpg" alt="book img" />
                 <h3>Investing in a 21st Century Educational Research System</h3>
                 <img
-                  src="../../src/assets/icons/arrow.svg "
+                  src="../src/assets/icons/arrow.svg "
                   alt="arrow img"
                   className="arrow"
                 />
               </div>
               <div className="card">
-                <img src="../../src/assets/book-img.jpg" alt="book img" />
+                <img src="../src/assets/book-img.jpg" alt="book img" />
                 <h3>Investing in a 21st Century Educational Research System</h3>
                 <img
-                  src="../../src/assets/icons/arrow.svg "
+                  src="../src/assets/icons/arrow.svg "
                   alt="arrow img"
                   className="arrow"
                 />
               </div>
               <div className="card">
-                <img src="../../src/assets/book-img.jpg" alt="book img" />
+                <img src="../src/assets/book-img.jpg" alt="book img" />
                 <h3>Investing in a 21st Century Educational Research System</h3>
                 <img
-                  src="../../src/assets/icons/arrow.svg "
+                  src="../src/assets/icons/arrow.svg "
                   alt="arrow img"
                   className="arrow"
                 />
