@@ -28,7 +28,7 @@ export const Navbar = () => {
     <nav className={styles.navbar}>
       <div className="container">
         <Link to={"/"} className={styles.logo}>
-          <img src="./src/assets/logo.png" alt="logo" />
+          <img src="./assets/logo.png" alt="logo" />
         </Link>
         <div>
           <ul>

@@ -9,7 +9,7 @@ export const CentersAndDepartments = () => {
       <div className="aside">
         <div className="aside-container">
           <div className="aside-img">
-            <img src="./src/assets/about-header.jpg" alt="about" />
+            <img src="./assets/about-header.jpg" alt="about" />
           </div>
           <div className="aside-content">
             <h2>Lorem ipsum solid</h2>
@@ -225,16 +225,16 @@ export const CentersAndDepartments = () => {
           <h2>gallery</h2>
           <div className="cards">
             <div className="card">
-              <img src="./src/assets/about-header.jpg" alt="" />
+              <img src="./assets/about-header.jpg" alt="" />
             </div>
             <div className="card">
-              <img src="./src/assets/about-header.jpg" alt="" />
+              <img src="./assets/about-header.jpg" alt="" />
             </div>
             <div className="card">
-              <img src="./src/assets/about-header.jpg" alt="" />
+              <img src="./assets/about-header.jpg" alt="" />
             </div>
             <div className="card">
-              <img src="./src/assets/about-header.jpg" alt="" />
+              <img src="./assets/about-header.jpg" alt="" />
             </div>
           </div>
         </div>

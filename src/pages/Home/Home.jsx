@@ -7,7 +7,7 @@ export const Home = () => {
   return (
     <section className={styles.section + " column"}>
       <img
-        src="./src/assets/header.jpg"
+        src="./assets/header.jpg"
         alt="img"
         className={styles.slide}
       />
@@ -32,7 +32,7 @@ export const Home = () => {
                   commission to bring to life the themes of `Courting India`.
                 </p>
                 <img
-                  src="./src/assets/icons/arrow.svg"
+                  src="./assets/icons/arrow.svg"
                   alt="arrow"
                   className="arrow"
                 />
@@ -48,7 +48,7 @@ export const Home = () => {
                   commission to bring to life the themes of `Courting India`.
                 </p>
                 <img
-                  src="./src/assets/icons/arrow.svg"
+                  src="./assets/icons/arrow.svg"
                   alt="arrow"
                   className="arrow"
                 />
@@ -64,7 +64,7 @@ export const Home = () => {
                   commission to bring to life the themes of `Courting India`.
                 </p>
                 <img
-                  src="./src/assets/icons/arrow.svg"
+                  src="./assets/icons/arrow.svg"
                   alt="arrow"
                   className="arrow"
                 />
@@ -76,7 +76,7 @@ export const Home = () => {
       <div className="aside">
         <div className="aside-container">
           <div className="aside-img">
-            <img src="./src/assets/header.jpg" alt="jpg" />
+            <img src="./assets/header.jpg" alt="jpg" />
           </div>
           <div className="aside-content">
             <h2>Journal of the British Academy relaunched</h2>
@@ -89,7 +89,7 @@ export const Home = () => {
               events and activities.
             </p>
             <img
-              src="./src/assets/icons/arrow-light.svg"
+              src="./assets/icons/arrow-light.svg"
               alt="arrow"
               className="arrow"
             />
@@ -101,28 +101,28 @@ export const Home = () => {
           <h2>{t("library")}</h2>
           <div className="cards">
             <div className="card">
-              <img src="./src/assets/book-img.jpg" alt="book img" />
+              <img src="./assets/book-img.jpg" alt="book img" />
               <h3>Investing in a 21st Century Educational Research System</h3>
               <img
-                src="./src/assets/icons/arrow.svg "
+                src="./assets/icons/arrow.svg "
                 alt="arrow img"
                 className="arrow"
               />
             </div>
             <div className="card">
-              <img src="./src/assets/book-img.jpg" alt="book img" />
+              <img src="./assets/book-img.jpg" alt="book img" />
               <h3>Investing in a 21st Century Educational Research System</h3>
               <img
-                src="./src/assets/icons/arrow.svg "
+                src="./assets/icons/arrow.svg "
                 alt="arrow img"
                 className="arrow"
               />
             </div>
             <div className="card">
-              <img src="./src/assets/book-img.jpg" alt="book img" />
+              <img src="./assets/book-img.jpg" alt="book img" />
               <h3>Investing in a 21st Century Educational Research System</h3>
               <img
-                src="./src/assets/icons/arrow.svg "
+                src="./assets/icons/arrow.svg "
                 alt="arrow img"
                 className="arrow"
               />
@@ -133,7 +133,7 @@ export const Home = () => {
       <div className="aside green">
         <div className="aside-container">
           <div className="aside-img">
-            <img src="./src/assets/header.jpg" alt="jpg" />
+            <img src="./assets/header.jpg" alt="jpg" />
           </div>
           <div className="aside-content">
             <h2>Journal of the British Academy relaunched</h2>
@@ -146,7 +146,7 @@ export const Home = () => {
               events and activities.
             </p>
             <img
-              src="./src/assets/icons/arrow-light.svg"
+              src="./assets/icons/arrow-light.svg"
               alt="arrow"
               className="arrow"
             />
@@ -159,31 +159,31 @@ export const Home = () => {
           <div className="cards">
             <a className="card" href="/">
               <div className="card-img">
-                <img src="./src/assets/quick-links.jpg" alt="quick link" />
+                <img src="./assets/quick-links.jpg" alt="quick link" />
               </div>
               <p>O`zbekiston Respublikasi hukumat portali</p>
             </a>
             <a className="card" href="/">
               <div className="card-img">
-                <img src="./src/assets/quick-links.jpg" alt="quick link" />
+                <img src="./assets/quick-links.jpg" alt="quick link" />
               </div>
               <p>O`zbekiston Respublikasi hukumat portali</p>
             </a>
             <a className="card" href="/">
               <div className="card-img">
-                <img src="./src/assets/quick-links.jpg" alt="quick link" />
+                <img src="./assets/quick-links.jpg" alt="quick link" />
               </div>
               <p>O`zbekiston Respublikasi hukumat portali</p>
             </a>
             <a className="card" href="/">
               <div className="card-img">
-                <img src="./src/assets/quick-links.jpg" alt="quick link" />
+                <img src="./assets/quick-links.jpg" alt="quick link" />
               </div>
               <p>O`zbekiston Respublikasi hukumat portali</p>
             </a>
             <a className="card" href="/">
               <div className="card-img">
-                <img src="./src/assets/quick-links.jpg" alt="quick link" />
+                <img src="./assets/quick-links.jpg" alt="quick link" />
               </div>
               <p>O`zbekiston Respublikasi hukumat portali</p>
             </a>
