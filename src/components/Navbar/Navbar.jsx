@@ -31,7 +31,7 @@ export const Navbar = () => {
           <img src="./assets/logo.png" alt="logo" />
         </Link>
         <div>
-          <ul>
+          <ul> 
             {navbarData.map((item, index) => {
               const { id, content, to } = item;
               return (
