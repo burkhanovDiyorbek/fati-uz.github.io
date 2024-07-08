@@ -3,8 +3,7 @@ import styles from "./library.module.css";
 import { FaSearch } from "react-icons/fa";
 import { BiDownArrow } from "react-icons/bi";
 import { useState } from "react";
-import { archiveYear } from "exports/archive-year";
-
+import { archive } from "../../exports/archive";
 export const Library = () => {
   const [filter, setFilter] = useState("all");
   const [search, setSearch] = useState("");
@@ -129,7 +128,7 @@ export const Library = () => {
           <div className="left">
             <h2>Arxiv</h2>
             <ul>
-              {archiveYear.map((item) => {
+              {archive.map((item) => {
                 const { id, value } = item;
                 return (
                   <li
