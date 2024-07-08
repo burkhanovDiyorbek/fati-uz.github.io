@@ -77,7 +77,7 @@ export const About = () => {
                 </ul>
               </div>
               <div className="picture">
-                <img src="../src/assets/user.jpg" alt="user" />
+                <img src="./../src/assets/user.jpg" alt="user" />
               </div>
             </div>
             <div className="card">
@@ -101,7 +101,7 @@ export const About = () => {
                 </ul>
               </div>
               <div className="picture">
-                <img src="../src/assets/user.jpg" alt="user" />
+                <img src="./../src/assets/user.jpg" alt="user" />
               </div>
             </div>
             <div className="card">
@@ -125,7 +125,7 @@ export const About = () => {
                 </ul>
               </div>
               <div className="picture">
-                <img src="../src/assets/user.jpg" alt="user" />
+                <img src="./../src/assets/user.jpg" alt="user" />
               </div>
             </div>
             <div className="card">
@@ -149,7 +149,7 @@ export const About = () => {
                 </ul>
               </div>
               <div className="picture">
-                <img src="../src/assets/user.jpg" alt="user" />
+                <img src="./../src/assets/user.jpg" alt="user" />
               </div>
             </div>
           </div>

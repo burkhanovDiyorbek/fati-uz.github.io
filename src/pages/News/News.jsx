@@ -65,7 +65,7 @@ export const News = () => {
                   climate action, and pandemic preparedness.
                 </p>
                 <img
-                  src="../src/assets/icons/arrow.svg"
+                  src="./../src/assets/icons/arrow.svg"
                   alt="arrow"
                   className="arrow"
                 />
@@ -89,7 +89,7 @@ export const News = () => {
                   climate action, and pandemic preparedness.
                 </p>
                 <img
-                  src="../src/assets/icons/arrow.svg"
+                  src="./../src/assets/icons/arrow.svg"
                   alt="arrow"
                   className="arrow"
                 />
@@ -113,7 +113,7 @@ export const News = () => {
                   climate action, and pandemic preparedness.
                 </p>
                 <img
-                  src="../src/assets/icons/arrow.svg"
+                  src="./../src/assets/icons/arrow.svg"
                   alt="arrow"
                   className="arrow"
                 />
@@ -137,7 +137,7 @@ export const News = () => {
                   climate action, and pandemic preparedness.
                 </p>
                 <img
-                  src="../src/assets/icons/arrow.svg"
+                  src="./../src/assets/icons/arrow.svg"
                   alt="arrow"
                   className="arrow"
                 />
@@ -161,7 +161,7 @@ export const News = () => {
                   climate action, and pandemic preparedness.
                 </p>
                 <img
-                  src="../src/assets/icons/arrow.svg"
+                  src="./../src/assets/icons/arrow.svg"
                   alt="arrow"
                   className="arrow"
                 />
@@ -185,7 +185,7 @@ export const News = () => {
                   climate action, and pandemic preparedness.
                 </p>
                 <img
-                  src="../src/assets/icons/arrow.svg"
+                  src="./../src/assets/icons/arrow.svg"
                   alt="arrow"
                   className="arrow"
                 />
