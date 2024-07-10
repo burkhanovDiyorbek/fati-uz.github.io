@@ -1,0 +1,27 @@
+.top {
+  padding: 100px 50px;
+  background: rgb(95, 5, 32);
+  color: #fff;
+  margin-bottom: 70px;
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    h2 {
+      font-size: 80px;
+      font-family: "Poppins", sans-serif;
+    }
+    p {
+      max-width: 400px;
+    }
+  }
+}
+
+@media (max-width: 760px) {
+  .top {
+    padding: 50px 30px;
+    h2 {
+      font-size: 36px !important;
+    }
+  }
+}

@@ -31,6 +31,7 @@
     justify-content: center;
     border-top: 1px solid #333ce2;
     z-index: 10000;
+    animation: anim .2s;
     li {
       font-size: 14px;
       border-right: none;
@@ -131,5 +132,18 @@
   }
   svg{
     width: 20px!important;
+  }
+}
+
+@keyframes anim {
+  from {
+    transform: translateY(-100px);
+    opacity: 0;
+    z-index: -1;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+    z-index: 100000;
   }
 }

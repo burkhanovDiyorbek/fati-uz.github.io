@@ -12,12 +12,12 @@ export const navbarData = [
   {
     id: 2,
     content: "councils",
-    to: "/about",
+    to: "/councils",
   },
   {
     id: 3,
     content: "doctorals",
-    to: "/about",
+    to: "/doctorals",
   },
   {
     id: 4,

@@ -18,6 +18,21 @@
 body {
   font-family: "Graphic Light";
   overflow-x: hidden;
+  transition: .5s ease;
+  section {
+    /* visibility: visible; */
+    opacity: 1;
+    transition: .5s ease;
+  }
+}
+
+.true {
+  transition: .5s ease;
+  section {
+    /* visibility: hidden; */
+    opacity: 0;
+    transition: .5s ease;
+  }
 }
 
 #root {
