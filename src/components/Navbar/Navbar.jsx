@@ -20,10 +20,8 @@ export const Navbar = () => {
     localStorage.setItem("i18lng", langVal);
   }, [langVal]);
 
-  document.body.style = `overflow: ${
-    showSearch || showMore ? "hidden" : "auto"
-  }`;
-
+  document.body.style = `overflow-x: ${showMore ? "hidden" : "auto"}`;
+  document.body.style = `overflow-y: ${showSearch ? "hidden" : "auto"}`;
   return (
     <nav className={styles.navbar}>
       <div className="container">
@@ -31,7 +29,7 @@ export const Navbar = () => {
           <img src="./assets/logo.png" alt="logo" />
         </Link>
         <div>
-          <ul> 
+          <ul>
             {navbarData.map((item, index) => {
               const { id, content, to } = item;
               return (
