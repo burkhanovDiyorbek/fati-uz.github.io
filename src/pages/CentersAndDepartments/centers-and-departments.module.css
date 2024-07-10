@@ -7,3 +7,12 @@
   padding: 100px 50px;
   margin-bottom: 70px;
 }
+
+@media (max-width: 760px) {
+  .top {
+    padding: 50px 30px;
+    h2 {
+      font-size: 36px !important;
+    }
+  }
+}

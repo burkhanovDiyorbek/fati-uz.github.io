@@ -5,7 +5,11 @@ export const CentersAndDepartments = () => {
   const { t } = useTranslation();
   return (
     <section className={styles.section}>
-      <div className={styles.top}>{t("centers")}</div>
+      <div className={styles.top}>
+        <div className="container">
+          <h2>{t("centers")}</h2>
+        </div>
+      </div>
       <div className="aside">
         <div className="aside-container">
           <div className="aside-img">

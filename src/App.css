@@ -619,7 +619,7 @@ html::-webkit-scrollbar-thumb {
     display: flex;
     flex-direction: column;
     border: 1px solid #e0e0e0;
-    width: 630px;
+    width: 100%;
     span {
       margin-left: 5px;
       font-weight: 800;
@@ -721,6 +721,7 @@ html::-webkit-scrollbar-thumb {
       flex-direction: column;
       align-items: center;
       flex-wrap: wrap;
+      width: 100%;
       .card {
         width: 50%;
         text-align: center;
@@ -737,10 +738,16 @@ html::-webkit-scrollbar-thumb {
       }
     }
   }
+  .community {
+    .cards {
+      grid-template-columns: 1fr;
+    }
+  }
 }
 
 @media (max-width: 450px) {
   .aside {
+    padding: 0;
     .aside-container {
       .aside-content {
         h2 {
@@ -781,6 +788,16 @@ html::-webkit-scrollbar-thumb {
         width: 100%;
         border: none;
         justify-content: space-between;
+      }
+    }
+  }
+  .councils {
+    li {
+      font-size: 12px;
+      padding: 7px 5px;
+      h2 {
+        font-size: 16px !important;
+        margin: 0 3px;
       }
     }
   }
