@@ -1,19 +1,19 @@
 import { useTranslation } from "react-i18next";
 import styles from "./centers-and-departments.module.css";
+import PageTop from "../../components/PageTop/PageTop";
+import { useLocation } from "react-router-dom";
 
 export const CentersAndDepartments = () => {
   const { t } = useTranslation();
+  const { search } = useLocation();
+  let id = search.at(-1);
   return (
     <section className={styles.section}>
-      <div className={styles.top}>
-        <div className="container">
-          <h2>{t("centers")}</h2>
-        </div>
-      </div>
+      <PageTop data={{ h2: "centers" + id }} />
       <div className="aside">
         <div className="aside-container">
           <div className="aside-img">
-            <img src="./assets/about-header.jpg" alt="about" />
+            <img src="./assets/about-header.jpg" alt="about" />d
           </div>
           <div className="aside-content">
             <h2>Lorem ipsum solid</h2>
@@ -120,43 +120,7 @@ export const CentersAndDepartments = () => {
               A iusto ut fuga laudantium expedita sapiente. Molestiae hic magnam
               velit recusandae nemo quas, nostrum accusantium ab et dicta
               fugiat? Inventore fugiat soluta consectetur quas nobis repudiandae
-              quam! Consequuntur rem ipsam deserunt error itaque, id expedita
-              quo nostrum assumenda dignissimos qui quas neque illo reiciendis
-              officia in esse cumque, dolor labore harum numquam nobis sint.
-              Deleniti modi in quidem atque labore voluptatibus quae sequi
-              maxime quibusdam optio magni iure consectetur natus voluptas iusto
-              aspernatur vero dolor ex quam ipsam dicta harum, dignissimos
-              ducimus error. Exercitationem culpa ab nihil rem accusantium
-              aliquam id facere ex at soluta animi hic libero earum, debitis a,
-              autem aperiam eius sed inventore similique vitae aspernatur
-              quisquam? Omnis recusandae doloremque corporis quos reiciendis
-              similique perspiciatis voluptates ad adipisci. Fuga iste adipisci
-              ut quisquam, ab dolores veniam quae rem cum doloribus, vitae et
-              tempore nemo voluptates amet unde delectus dolorem fugit aperiam
-              illo doloremque eaque laborum! Dolores, officiis dicta architecto
-              et porro beatae exercitationem accusamus itaque, deleniti minima
-              quos ullam neque amet ducimus laboriosam nobis natus fugiat rem
-              eligendi. Facere magnam laborum consectetur illo culpa
-              necessitatibus quod accusantium quis aliquam nostrum deleniti quae
-              quam voluptas adipisci laboriosam ea enim beatae, non doloribus
-              dolor, perferendis dignissimos, repellat blanditiis. Quo dolorem
-              sequi labore, aspernatur eos incidunt doloribus, excepturi tenetur
-              optio nulla minus, nihil ex voluptatem pariatur quasi sit eaque
-              laudantium distinctio. Molestias saepe, explicabo, error eveniet
-              ipsum cum hic voluptates sed ipsa voluptatem omnis quibusdam quas
-              eum exercitationem fugiat excepturi a architecto, cupiditate
-              tenetur asperiores debitis atque totam! Ipsam est aliquam
-              quibusdam dolore nulla laboriosam harum neque modi, deleniti aut,
-              a explicabo atque eos earum maiores, iste facere ducimus nobis in.
-              Culpa, quaerat nisi! Qui, voluptatum necessitatibus. Maiores ut
-              debitis commodi eius quasi quos, aspernatur doloribus tempora sint
-              minus veritatis velit veniam hic! Pariatur nisi sed nostrum esse
-              cum commodi repellendus magni nam minus. Ipsa cupiditate quas
-              omnis consequatur. Odio sed aut labore! Officia beatae sapiente in
-              quos necessitatibus est dignissimos, culpa doloribus, adipisci
-              aspernatur quod earum nesciunt voluptatibus omnis molestias quam,
-              blanditiis veniam placeat vitae labore reprehenderit unde hic
-              fuga? Veniam, minus?
+              quam! 
             </p>
           </div>
         </div>
@@ -225,20 +189,20 @@ export const CentersAndDepartments = () => {
         </div>
       </div>
       <div className="container">
-        <div className="img-cards">
+        <div className="img-cards" style={{marginTop:"70px"}}>
           <h2>gallery</h2>
           <div className="cards">
             <div className="card">
-              <img src="./assets/about-header.jpg" alt="" />
+              <img src="./assets/about-header.jpg" alt="about" />
             </div>
             <div className="card">
-              <img src="./assets/about-header.jpg" alt="" />
+              <img src="./assets/about-header.jpg" alt="about" />
             </div>
             <div className="card">
-              <img src="./assets/about-header.jpg" alt="" />
+              <img src="./assets/about-header.jpg" alt="about" />
             </div>
             <div className="card">
-              <img src="./assets/about-header.jpg" alt="" />
+              <img src="./assets/about-header.jpg" alt="about" />
             </div>
           </div>
         </div>

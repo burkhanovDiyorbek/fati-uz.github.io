@@ -1,79 +1,98 @@
 import { Link } from "react-router-dom";
 import styles from "./navbar.module.css";
 import { navbarData } from "../../exports/navbar";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { BiSearch } from "react-icons/bi";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 import { Search } from "../Search/Search";
-import { RxCross1 } from "react-icons/rx";
 import i18n from "i18next";
+import { GrDown } from "react-icons/gr";
+import { BiMenu } from "react-icons/bi";
 
 export const Navbar = () => {
   const { t } = useTranslation();
-  const [showMore, setShowMore] = useState(false);
-  const [showSearch, setShowSearch] = useState(false);
   const [langVal, setLangValue] = useState("uz");
-
+  const [showLang, setShowLang] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
   useEffect(() => {
     i18n.changeLanguage(langVal);
     localStorage.setItem("i18lng", langVal);
   }, [langVal]);
-
-  document.body.style = `overflow-x: ${showMore ? "hidden" : "auto"}`;
-  document.body.style = `overflow-y: ${showSearch ? "hidden" : "auto"}`;
   return (
     <nav className={styles.navbar}>
       <div className="container">
-        <Link to={"/"} className={styles.logo}>
-          <img src="./assets/logo.png" alt="logo" />
-        </Link>
-        <div>
-          <ul>
-            {navbarData.map((item, index) => {
-              const { id, content, to } = item;
+        <div className={styles.container}>
+          <div className={styles.top}>
+            <Link to={"/"} className={styles.logo}>
+              <img src="./assets/logo.png" alt="logo" />
+            </Link>
+            <Search />
+            <div className={styles.lang}>
+              <div
+                className={styles.clc}
+                onClick={() => setShowLang((prev) => !prev)}
+              >
+                <img
+                  src={`./assets/${langVal == "en" ? "english" : "uzbek"}.png`}
+                  alt="flag"
+                />
+                <p> {langVal == "en" ? "English" : "O'zbekcha"}</p>
+              </div>
+              {showLang && (
+                <span
+                  onClick={() => {
+                    setLangValue(langVal != "en" ? "en" : "uz");
+                    setShowLang((prev) => !prev);
+                  }}
+                  className={styles.change}
+                >
+                  <img
+                    src={`./assets/${
+                      langVal != "en" ? "english" : "uzbek"
+                    }.png`}
+                    alt="flag"
+                  />
+                  <p> {langVal != "en" ? "English" : "O'zbekcha"}</p>
+                </span>
+              )}
+            </div>
+          </div>
+          <div className={styles["menu-mob"]}>
+            <div
+              className={styles["mob-icon"]}
+              onClick={() => setShowMenu((prev) => !prev)}
+            >
+              <BiMenu />
+            </div>
+          </div>
+          <ul className={showMenu ? styles.show:''}>
+            {navbarData.map((item) => {
+              const { id, content } = item;
               return (
-                index < 3 && (
-                  <li key={id} className="mob-hide">
-                    <Link to={to}>{t(content)}</Link>
-                  </li>
-                )
+                <li key={id}>
+                  <input type="radio" name="menu" id={id} />
+                  <label htmlFor={id}>
+                    {!item?.links ? (
+                      <Link to={item.to}>{t(content)}</Link>
+                    ) : (
+                      <p>
+                        {t(content)} {item?.links && <GrDown />}
+                      </p>
+                    )}
+                    <ol>
+                      {item?.links?.map((item) => {
+                        const { id, content, to } = item;
+                        return (
+                          <li key={id} onClick={() => setShowMenu(false)}>
+                            <Link to={to}>{t(content)}</Link>
+                          </li>
+                        );
+                      })}
+                    </ol>
+                  </label>
+                </li>
               );
             })}
           </ul>
-          <div
-            className={styles.more}
-            onClick={() => setShowMore((prev) => !prev)}
-          >
-            <p>More</p>
-            {showMore ? <RxCross1 /> : <GiHamburgerMenu />}
-          </div>
-          {showMore && (
-            <ul className={styles.more_content}>
-              {navbarData.map((item, index) => {
-                const { id, content, to } = item;
-                return (
-                  <li key={id} className={index < 3 ? "desk-hide" : ""}>
-                    <Link to={to}>{t(content)}</Link>
-                  </li>
-                );
-              })}
-            </ul>
-          )}
-          <div
-            className={styles.search}
-            onClick={() => setShowSearch((prev) => !prev)}
-          >
-            <BiSearch />
-          </div>
-          <div className={styles.lang}>
-            {langVal == "en" ? (
-              <span onClick={() => setLangValue("uz")}>O`zb</span>
-            ) : (
-              <span onClick={() => setLangValue("en")}>Eng</span>
-            )}
-          </div>
-          {showSearch && <Search />}
         </div>
       </div>
     </nav>

@@ -74,7 +74,7 @@ export const NewsAbout = () => {
         <div className="img-cards">
           <h2>Latest News</h2>
           <div className="cards">
-            <Link to={"news/1"} className="card">
+            <Link to={"/news/1"} className="card">
               <img src="./assets/book-img.jpg" alt="book" />
               <h3>Investing in a 21st Century Educational Research System</h3>
               <p>
@@ -87,7 +87,7 @@ export const NewsAbout = () => {
                 className="arrow"
               />
             </Link>
-            <Link to={"news/1"} className="card">
+            <Link to={"/news/1"} className="card">
               <img src="./assets/book-img.jpg" alt="book" />
               <h3>Investing in a 21st Century Educational Research System</h3>
               <p>
@@ -100,7 +100,7 @@ export const NewsAbout = () => {
                 className="arrow"
               />
             </Link>
-            <Link to={"news/1"} className="card">
+            <Link to={"/news/1"} className="card">
               <img src="./assets/book-img.jpg" alt="book" />
               <h3>Investing in a 21st Century Educational Research System</h3>
               <p>

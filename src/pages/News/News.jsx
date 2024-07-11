@@ -2,21 +2,15 @@ import { useTranslation } from "react-i18next";
 import styles from "./news.module.css";
 import { FaRegNewspaper } from "react-icons/fa6";
 import { useState } from "react";
+import PageTop from "../../components/PageTop/PageTop";
+import { Link } from "react-router-dom";
 
 export const News = () => {
   const { t } = useTranslation();
   const [sortVal, setSortVal] = useState("newest");
   return (
     <section className={styles.section}>
-      <div className={styles.top}>
-        <div className="container">
-          <h2>{t("news")}</h2>
-          <p>
-            The latest news and analysis from the British Academy, our community
-            and leading SHAPE thinkers.
-          </p>
-        </div>
-      </div>
+      <PageTop data={{ h2: "news" }} />
       <div className="container">
         <div className="community">
           <ul className="news-sort">
@@ -54,21 +48,25 @@ export const News = () => {
                   <p>{t("news")}</p>
                   <span>5 JUL 2024</span>
                 </div>
-                <h2>
-                  Funding announced for Official Development Assistance
-                  Challenge-Oriented Research Grants 2024
-                </h2>
+                <Link to="/news/1">
+                  <h2>
+                    Funding announced for Official Development Assistance
+                    Challenge-Oriented Research Grants 2024
+                  </h2>
+                </Link>
                 <p>
                   The 48 successful research projects under the programme will
                   address current global policy challenges, related to themes
                   such as antimicrobial resistance, environmental resilience and
                   climate action, and pandemic preparedness.
                 </p>
-                <img
-                  src="./assets/icons/arrow.svg"
-                  alt="arrow"
-                  className="arrow"
-                />
+                <Link to={"/news/1"}>
+                  <img
+                    src="./assets/icons/arrow.svg"
+                    alt="arrow"
+                    className="arrow"
+                  />
+                </Link>
               </div>
             </div>
             <div className="card">
@@ -78,21 +76,25 @@ export const News = () => {
                   <p>{t("news")}</p>
                   <span>5 JUL 2024</span>
                 </div>
-                <h2>
-                  Funding announced for Official Development Assistance
-                  Challenge-Oriented Research Grants 2024
-                </h2>
+                <Link to="/news/1">
+                  <h2>
+                    Funding announced for Official Development Assistance
+                    Challenge-Oriented Research Grants 2024
+                  </h2>
+                </Link>
                 <p>
                   The 48 successful research projects under the programme will
                   address current global policy challenges, related to themes
                   such as antimicrobial resistance, environmental resilience and
                   climate action, and pandemic preparedness.
                 </p>
-                <img
-                  src="./assets/icons/arrow.svg"
-                  alt="arrow"
-                  className="arrow"
-                />
+                <Link to={"/news/1"}>
+                  <img
+                    src="./assets/icons/arrow.svg"
+                    alt="arrow"
+                    className="arrow"
+                  />
+                </Link>
               </div>
             </div>
             <div className="card">
@@ -102,21 +104,25 @@ export const News = () => {
                   <p>{t("news")}</p>
                   <span>5 JUL 2024</span>
                 </div>
-                <h2>
-                  Funding announced for Official Development Assistance
-                  Challenge-Oriented Research Grants 2024
-                </h2>
+                <Link to="/news/1">
+                  <h2>
+                    Funding announced for Official Development Assistance
+                    Challenge-Oriented Research Grants 2024
+                  </h2>
+                </Link>
                 <p>
                   The 48 successful research projects under the programme will
                   address current global policy challenges, related to themes
                   such as antimicrobial resistance, environmental resilience and
                   climate action, and pandemic preparedness.
                 </p>
-                <img
-                  src="./assets/icons/arrow.svg"
-                  alt="arrow"
-                  className="arrow"
-                />
+                <Link to={"/news/1"}>
+                  <img
+                    src="./assets/icons/arrow.svg"
+                    alt="arrow"
+                    className="arrow"
+                  />
+                </Link>
               </div>
             </div>
             <div className="card">
@@ -126,21 +132,25 @@ export const News = () => {
                   <p>{t("news")}</p>
                   <span>5 JUL 2024</span>
                 </div>
-                <h2>
-                  Funding announced for Official Development Assistance
-                  Challenge-Oriented Research Grants 2024
-                </h2>
+                <Link to="/news/1">
+                  <h2>
+                    Funding announced for Official Development Assistance
+                    Challenge-Oriented Research Grants 2024
+                  </h2>
+                </Link>
                 <p>
                   The 48 successful research projects under the programme will
                   address current global policy challenges, related to themes
                   such as antimicrobial resistance, environmental resilience and
                   climate action, and pandemic preparedness.
                 </p>
-                <img
-                  src="./assets/icons/arrow.svg"
-                  alt="arrow"
-                  className="arrow"
-                />
+                <Link to={"/news/1"}>
+                  <img
+                    src="./assets/icons/arrow.svg"
+                    alt="arrow"
+                    className="arrow"
+                  />
+                </Link>
               </div>
             </div>
             <div className="card">
@@ -150,21 +160,25 @@ export const News = () => {
                   <p>{t("news")}</p>
                   <span>5 JUL 2024</span>
                 </div>
-                <h2>
-                  Funding announced for Official Development Assistance
-                  Challenge-Oriented Research Grants 2024
-                </h2>
+                <Link to="/news/1">
+                  <h2>
+                    Funding announced for Official Development Assistance
+                    Challenge-Oriented Research Grants 2024
+                  </h2>
+                </Link>
                 <p>
                   The 48 successful research projects under the programme will
                   address current global policy challenges, related to themes
                   such as antimicrobial resistance, environmental resilience and
                   climate action, and pandemic preparedness.
                 </p>
-                <img
-                  src="./assets/icons/arrow.svg"
-                  alt="arrow"
-                  className="arrow"
-                />
+                <Link to={"/news/1"}>
+                  <img
+                    src="./assets/icons/arrow.svg"
+                    alt="arrow"
+                    className="arrow"
+                  />
+                </Link>
               </div>
             </div>
             <div className="card">
@@ -174,21 +188,25 @@ export const News = () => {
                   <p>{t("news")}</p>
                   <span>5 JUL 2024</span>
                 </div>
-                <h2>
-                  Funding announced for Official Development Assistance
-                  Challenge-Oriented Research Grants 2024
-                </h2>
+                <Link to="/news/1">
+                  <h2>
+                    Funding announced for Official Development Assistance
+                    Challenge-Oriented Research Grants 2024
+                  </h2>
+                </Link>
                 <p>
                   The 48 successful research projects under the programme will
                   address current global policy challenges, related to themes
                   such as antimicrobial resistance, environmental resilience and
                   climate action, and pandemic preparedness.
                 </p>
-                <img
-                  src="./assets/icons/arrow.svg"
-                  alt="arrow"
-                  className="arrow"
-                />
+                <Link to={"/news/1"}>
+                  <img
+                    src="./assets/icons/arrow.svg"
+                    alt="arrow"
+                    className="arrow"
+                  />
+                </Link>
               </div>
             </div>
           </div>

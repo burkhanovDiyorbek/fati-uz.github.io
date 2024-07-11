@@ -29,7 +29,6 @@ body {
 .true {
   transition: .5s ease;
   section {
-    /* visibility: hidden; */
     opacity: 0;
     transition: .5s ease;
   }

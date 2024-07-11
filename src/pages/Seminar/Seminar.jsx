@@ -1,18 +1,17 @@
 import { useTranslation } from "react-i18next";
-import styles from "./seminar.module.css";
+import { useLocation } from "react-router-dom";
+import PageTop from "../../components/PageTop/PageTop";
 
 export const Seminar = () => {
   const { t } = useTranslation();
+  const { search } = useLocation();
+  let id = search.at(-1);
   return (
-    <section className={styles.section}>
-      <div className={styles.top}>
-        <div className="container">
-          <h2>{t("gatherings")}</h2>
-        </div>
-      </div>
+    <section>
+      <PageTop data={{ h2: "seminar" + id }} />
       <div className="container">
         <div className="seminar">
-          <h2>Yosh olimlar seminari</h2>
+          <h2>{t("seminar" + id)}</h2>
           <ul>
             <li>
               O‘zbekiston Fanlar akademiyasi Tarix institutining Yosh olimlar
@@ -56,59 +55,6 @@ export const Seminar = () => {
                   uning mohiyatiga oid ma&rsquo;ruzalar.
                 </li>
               </ol>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div className="container">
-        <div className="seminar">
-          <h2>Tarixshunoslik o‘qishlari</h2>
-          <ul>
-            <li>
-              Tarixshunoslikni O‘zbekistonda ilmiy yo‘nalish sifatida
-              rivojlantirish XX asrning 60-yillari oxiriga to‘g‘ri keldi. Bunda
-              O‘zbekiston FA Tarix institutida ‘‘Tarixshunoslik, manbashunoslik
-              va arxeologiya‘‘ bo‘limi tashkil etilishi katta ahamiyat kasb
-              etdi. Uning birinchi rahbari taniqli olim B. V. Lunin edi.
-            </li>
-            <li>
-              1989-yilda O‘zR FA Tarix institutida bo‘lim tashkil etilganining
-              20 yilligi munosabati bilan O‘rta Osiyo va Qozog‘iston
-              tarixshunoslari ishtirokida dastlabki mintaqalararo
-              <b>‘‘Tarixshunoslik o‘qishlari‘‘</b> tashkil etildi va o‘tkazildi.
-            </li>
-            <li>
-              1993-yil 27-28-oktyabr kunlari O‘zbekiston Respublikasi Fanlar
-              Akademiyasining 50 yilligi munosabati bilan{" "}
-              <b>‘‘Tarixshunoslik va manbashunoslik‘‘ </b> bo‘limi tomonidan
-              ‘‘Mustaqillik davri O‘zbekiston tarixshunosligi‘‘ mavzusida
-              ikkinchi mintaqalararo ‘‘Tarixshunoslik o‘qishlari‘‘ tashkil
-              etildi va o‘tkazildi.
-            </li>
-            <li>
-              2003-yil 3-4-dekabr kunlari bo‘lim tomonidan ‘‘O‘zbekistonda tarix
-              fani: taraqqiyot yutuqlari va muammolari‘‘ mavzusida uchinchi
-              ‘‘Tarixshunoslik o‘qishlari‘‘ o‘tkazildi.
-            </li>
-            <li>
-              {" "}
-              An‘anaviy bo‘lib ulgurgan, to‘rtinchi ‘Tarixshunoslik o‘qishlari‘
-              2006-yil 4-5-dekabr kunlari bo‘lib o‘tdi va B. V. Luninning 100
-              yilligiga bag‘ishlandi. Beshinchi ‘Tarixshunoslik o‘qishlari‘
-              2010-yil dekabr oyida bo‘lib o‘tdi va O‘zbekiston Respublikasi
-              Mustaqilligining 20 yilligiga bag‘ishlandi. O‘qish materiallari
-              2011 -yilda chop etildi.
-            </li>
-            <li>
-              2013-yil 20-dekabr kuni ‘Markaziy Osiyo intellektual taraqqiyoti
-              kontekstida tarix fani‘ mavzusida oltinchi ‘Tarixshunoslik
-              o‘qishlari‘bo‘lib o‘tdi. O‘qishlar O‘zR FA tarix institutining 70
-              yilligiga bag‘ishlandi.
-            </li>
-            <li>
-              2017-yil 27-dekabr kuni O‘zbekistonda tarix fani: muammolar va
-              rivojlanish istiqbollari‘ mavzusida yettinchi ‘Tarixshunoslik
-              o‘qishlari‘ bo‘lib o‘tdi.
             </li>
           </ul>
         </div>
