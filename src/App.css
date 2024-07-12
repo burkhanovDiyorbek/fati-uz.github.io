@@ -751,10 +751,16 @@ html::-webkit-scrollbar-thumb {
 }
 
 .page-top {
-  padding: 160px 40px 120px;
-  background-image: url("./assets/top-bg.png");
   position: relative;
   margin-bottom: 40px;
+  img {
+    position: absolute;
+    width: 100vw;
+    left: 0;
+    top: 0;
+    height: 100%;
+    z-index: 1;
+  }
   &:before {
     content: "";
     position: absolute;
@@ -764,9 +770,10 @@ html::-webkit-scrollbar-thumb {
     height: 100%;
     background-color: #000000af;
     backdrop-filter: blur(4px);
-    z-index: 1;
+    z-index: 10;
   }
   .container {
+    padding: 160px 40px 120px;
     flex-direction: column;
     color: #fff;
     position: relative;

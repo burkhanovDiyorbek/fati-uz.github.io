@@ -10,12 +10,7 @@ import { About } from "./pages/About/About";
 import { CentersAndDepartments } from "./pages/CentersAndDepartments/CentersAndDepartments";
 import { News } from "./pages/News/News";
 import { NewsAbout } from "./pages/NewsAbout/NewsAbout";
-import { Library } from "./pages/Library/Library";
-import { Seminar } from "./pages/Seminar/Seminar";
-import { Internationals } from "./pages/Internationals/Internationals";
-import { Doctoral } from "./pages/Doctoral/Doctoral";
 import { useEffect } from "react";
-import { Councils } from "./pages/Councils/Councils";
 import { SearchResult } from "./pages/SearchResult/SearchResult";
 import { NotFound } from "./pages/NotFound/NotFound";
 import { Contact } from "./pages/Contact/Contact";
@@ -64,11 +59,6 @@ const App = () => {
         />
         <Route path="news" element={<News />}></Route>
         <Route path="news/:id" element={<NewsAbout />} />
-        <Route path="library" element={<Library />} />
-        <Route path="seminar" element={<Seminar />} />
-        <Route path="internationals" element={<Internationals />} />
-        <Route path="doctorals" element={<Doctoral />} />
-        <Route path="councils" element={<Councils />} />
         <Route path="search/:value" element={<SearchResult />} />
         <Route path="contact" element={<Contact />} />
         <Route path="trade-union" element={<TradeUnion />} />
