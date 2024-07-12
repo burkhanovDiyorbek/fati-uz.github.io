@@ -6,11 +6,7 @@ export const Home = () => {
   const { t } = useTranslation();
   return (
     <section className={styles.section + " column"}>
-      <img
-        src="./assets/header.jpg"
-        alt="img"
-        className={styles.slide}
-      />
+      <img src="./assets/header.jpg" alt="img" className={styles.slide} />
       <div className="container">
         <div className="section-slice">
           <div className="row1">
@@ -157,35 +153,41 @@ export const Home = () => {
         <div className="quick-links">
           <h2>Foydali havolalar</h2>
           <div className="cards">
-            <a className="card" href="/">
+            <a className="card" href="/" target="_blank">
               <div className="card-img">
-                <img src="./assets/quick-links.jpg" alt="quick link" />
+                <img
+                  src="	https://my.gov.uz/svg/logotype.svg"
+                  alt="quick link"
+                />
               </div>
-              <p>O`zbekiston Respublikasi hukumat portali</p>
+              <p>Davlat Xizmatlari Markazi</p>
             </a>
-            <a className="card" href="/">
+            <a className="card" href="https://jadidlar.uz" target="_blank">
               <div className="card-img">
-                <img src="./assets/quick-links.jpg" alt="quick link" />
+                <img src="./assets/jadidlar.svg" alt="quick link" />
               </div>
-              <p>O`zbekiston Respublikasi hukumat portali</p>
+              <p>Jadidlar.uz</p>
             </a>
-            <a className="card" href="/">
+            <a className="card" href="https://tarix-manba.uz" target="_blank">
               <div className="card-img">
                 <img src="./assets/quick-links.jpg" alt="quick link" />
               </div>
-              <p>O`zbekiston Respublikasi hukumat portali</p>
+              <p>Tarix Manba</p>
             </a>
-            <a className="card" href="/">
+            <a className="card" href="/" target="_blank">
               <div className="card-img">
-                <img src="./assets/quick-links.jpg" alt="quick link" />
+                <img
+                  src="https://uzbmb.uz/upload/file/setting/Logo.png"
+                  alt="quick link"
+                />
               </div>
-              <p>O`zbekiston Respublikasi hukumat portali</p>
+              <p>UZBMB.UZ</p>
             </a>
-            <a className="card" href="/">
+            <a className="card" href="/" target="_blank">
               <div className="card-img">
                 <img src="./assets/quick-links.jpg" alt="quick link" />
               </div>
-              <p>O`zbekiston Respublikasi hukumat portali</p>
+              <p>Hukumat Portali</p>
             </a>
           </div>
         </div>

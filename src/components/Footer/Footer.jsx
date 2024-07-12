@@ -17,7 +17,7 @@ export const Footer = () => {
           </div>
           <div className={styles.row2}>
             <div>
-              <h2>{t('site_map')}</h2>
+              <h2>{t("site_map")}</h2>
               <nav>
                 <ul>
                   {navbarData.map((item, index) => {
@@ -47,7 +47,7 @@ export const Footer = () => {
             </div>
             <nav>
               <div>
-                <h2>{t('subscribe')}</h2>
+                <h2>{t("subscribe")}</h2>
                 <ul>
                   <li>
                     <a href="https://t.me/joinchat/_trsjRtlnjEzYWNi">
