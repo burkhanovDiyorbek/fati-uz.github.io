@@ -534,6 +534,10 @@ html::-webkit-scrollbar-thumb {
     align-items: center;
     width: 100%;
     border: 1px solid #e0e0e0;
+    h2 {
+      padding: 15px 10px;
+      font-family: "Poppins";
+    }
     ul {
       display: flex;
       li {
@@ -581,21 +585,22 @@ html::-webkit-scrollbar-thumb {
   }
   .load-more {
     margin: 0 auto;
-    padding: 15px 22px;
-    border: 1px solid #e0e0e0;
+    display: flex;
+    gap: 5px;
     button {
+      border: 1px solid #e0e0e0;
+      padding: 15px 22px;
       background: transparent;
       font-family: "Poppins", sans-serif;
-      border: none;
       display: flex;
       align-items: center;
       gap: 5px;
       font-size: 16px;
       cursor: pointer;
-    }
-    &:hover {
-      background: #0000003f;
-      color: #fff;
+      &:hover {
+        background: #0000003f;
+        color: #fff;
+      }
     }
   }
 }
@@ -867,7 +872,7 @@ html::-webkit-scrollbar-thumb {
     padding: 0;
     margin: 0 !important;
     font-size: 14px;
-    b{
+    b {
       margin: 0 5px;
     }
   }

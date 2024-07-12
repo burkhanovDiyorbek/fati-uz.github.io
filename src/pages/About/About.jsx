@@ -1,59 +1,20 @@
 import { useTranslation } from "react-i18next";
 import styles from "./about.module.css";
+import PageTop from "../../components/PageTop/PageTop";
 
 export const About = () => {
   const { t } = useTranslation();
   return (
     <section className={styles.section}>
-      <header className={styles.header}>
-        <h1>{t("about")}</h1>
-      </header>
+      <PageTop data={{ h2: "about" }} />
       <div className={styles.desc}>
         <h2>
-          ‘‘{t("footer_title_b")}
-          {t("footer_title_p")}‘‘
+          <q>
+            {t("footer_title_b")}
+            {t("footer_title_p")}
+          </q>
         </h2>
       </div>
-      <div className="container">
-        <div className="section-slice">
-          <div className="row1">
-            <h2>{t("we_do")}</h2>
-          </div>
-          <div className="row2">
-            <h3 className="about_title">
-              Mobilising the humanities and social sciences
-            </h3>
-            <p className="about_p">
-              From artificial intelligence to climate change, from building
-              prosperity to improving well-being – today’s complex challenges
-              can only be resolved by deepening our insight into people,
-              cultures and societies. We invest in researchers and projects
-              across the UK and overseas, engage the public with fresh thinking
-              and debates, and bring together scholars, government, business and
-              civil society to influence policy for the benefit of everyone.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="container">
-        <div className="section-slice">
-          <div className="row1">
-            <h2>Institut direktorlari:</h2>
-          </div>
-          <div className="row2">
-            <ul>
-              <li>Zarif Radjabov (1943–1945)</li>
-              <li>Аbdusamat Boboxojayev (1959–1964)</li>
-              <li>Аxad Muhammadjonov (1996–1998)</li>
-              <li>Mirsodiq Is{"'"}hoqov (1998–2000)</li>
-              <li>Ravshan Аbdullayev (2011–2019)</li>
-              <li>Azamat Ziyo (2019-yildan hozirga qadar)</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-   
-
       <div className="container">
         <div className="section-slice">
           <div className="row1">
@@ -135,6 +96,33 @@ export const About = () => {
             usullari. Hozirgi kunda institutda 2021-yil holatiga ko'ra 10
             nafar doktorant tahsil olmoqda.`}
             </p>
+          </div>
+        </div>
+      </div>
+      <div className="container">
+        <div className="section-slice">
+          <div className="row1">
+            <h2>Institut direktorlari:</h2>
+          </div>
+          <div className="row2">
+            <ul>
+              <li>Zarif Radjabov (1943–1945)</li>
+              <li>Vasiliy Shishkin (1945–1947)</li>
+              <li>Vladimir Nepomnin (1947–1949)</li>
+              <li>Rashid Nabiyev (1949–1952)</li>
+              <li>Habib Tursunov (1952–1955)</li>
+              <li>Ibrohim Mo‘minov (1955–1956)</li>
+              <li>Yahyo G‘ulomov (1956–1959) </li>
+              <li>Аbdusamat Boboxojayev (1959–1964)</li>
+              <li>Melixon Oxunova (1965–1986)</li>
+              <li>Ra’no Rajapova (1986–1991)</li>
+              <li>Аxmadali Аsqarov (1991–1995)</li>
+              <li>Аxad Muhammadjonov (1996–1998)</li>
+              <li>Mirsodiq Is{"'"}hoqov (1998–2000)</li>
+              <li>Dilorom Аlimova (2000–2010)</li>
+              <li>Ravshan Аbdullayev (2011–2019)</li>
+              <li>Azamat Ziyo (2019-yildan hozirga qadar)</li>
+            </ul>
           </div>
         </div>
       </div>

@@ -1,22 +1,14 @@
-import { useTranslation } from "react-i18next";
-import styles from "./library.module.css";
-import { FaSearch } from "react-icons/fa";
-import { BiDownArrow } from "react-icons/bi";
 import { useState } from "react";
-import { archive } from "../../exports/archive";
-export const Library = () => {
-  const [filter, setFilter] = useState("all");
-  const [search, setSearch] = useState("");
+import PageTop from "../components/PageTop/PageTop";
+import { archive } from "../exports/archive";
+
+export const Journal = () => {
+  // const [filter, setFilter] = useState("all");
+  // const [search, setSearch] = useState("");
   const [archiveYearVal, setArchiveYear] = useState("2000-2005");
-  console.log(search);
-  const { t } = useTranslation();
   return (
-    <section className={styles.section}>
-      <div className={styles.top}>
-        <div className="container">
-          <h2>{t("library")}</h2>
-        </div>
-      </div>
+    <section>
+      <PageTop data={{ h2: "journal" }} />
       <div className="container">
         <h2>O&rsquo;ZBEKISTON TARIXI JURNALI</h2>
       </div>
@@ -123,6 +115,11 @@ export const Library = () => {
           </p>
         </div>
       </div>
+      <div className="container">
+        <h2 style={{marginBottom:"20px"}}>
+          <q>O&apos;zbekiston tarixi jurnali</q> arxiv sonlari
+        </h2>
+      </div>
       <div className="container" style={{ flexDirection: "column" }}>
         <div className="archive">
           <div className="left">
@@ -153,7 +150,6 @@ export const Library = () => {
           </div>
         </div>
       </div>
-   
     </section>
   );
 };

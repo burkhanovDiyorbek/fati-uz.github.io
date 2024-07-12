@@ -26,6 +26,13 @@ import { Doctaurants } from "./pages/Doctaurants";
 import { DocExams } from "./pages/DocExams";
 import { ScientificDegree } from "./pages/ScientificDegree";
 import { ScYoung } from "./pages/ScYoung";
+import { Journal } from "./pages/Journal";
+import { EBooks } from "./pages/E-Books";
+import { Sources } from "./pages/Sources";
+import { Abstracts } from "./pages/Abstracts";
+import { GlobalPartners } from "./pages/GlobalPartners";
+import { GlobalResearchers } from "./pages/GlobalResearchers";
+import { GlobalProjects } from "./pages/GlobalProjects";
 
 i18n.use(initReactI18next).init({
   resources: {
@@ -72,8 +79,15 @@ const App = () => {
         <Route path="doc-admission" element={<DocAdmission />} />
         <Route path="doctaurants" element={<Doctaurants />} />
         <Route path="doc-exams" element={<DocExams />} />
-        <Route path="scientific-degree" element={<ScientificDegree/>} />
-        <Route path="sc-young" element={<ScYoung/>}/> 
+        <Route path="scientific-degree" element={<ScientificDegree />} />
+        <Route path="sc-young" element={<ScYoung />} />
+        <Route path="journal" element={<Journal />} />
+        <Route path="e-books" element={<EBooks />} />
+        <Route path="sources" element={<Sources />} />
+        <Route path="abstracts" element={<Abstracts />} />
+        <Route path="global-partners" element={<GlobalPartners />} />
+        <Route path="global-researchers" element={<GlobalResearchers />} />
+        <Route path="global-projects" element={<GlobalProjects />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
