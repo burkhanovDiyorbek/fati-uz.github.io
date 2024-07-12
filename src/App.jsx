@@ -28,6 +28,7 @@ import { Abstracts } from "./pages/Abstracts";
 import { GlobalPartners } from "./pages/GlobalPartners";
 import { GlobalResearchers } from "./pages/GlobalResearchers";
 import { GlobalProjects } from "./pages/GlobalProjects";
+import { Seminar } from "./pages/Seminar/Seminar";
 
 i18n.use(initReactI18next).init({
   resources: {
@@ -60,6 +61,7 @@ const App = () => {
         <Route path="news" element={<News />}></Route>
         <Route path="news/:id" element={<NewsAbout />} />
         <Route path="search/:value" element={<SearchResult />} />
+        <Route path="seminar" element={<Seminar />} />
         <Route path="contact" element={<Contact />} />
         <Route path="trade-union" element={<TradeUnion />} />
         <Route
