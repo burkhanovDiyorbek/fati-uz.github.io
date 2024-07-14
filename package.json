@@ -17,6 +17,7 @@
     "react-i18next": "^14.1.2",
     "react-icons": "^5.2.1",
     "react-router-dom": "^6.24.1",
+    "smooth-scrollbar-react": "^2.4.1",
     "vite-plugin-svgr": "^4.2.0"
   },
   "devDependencies": {

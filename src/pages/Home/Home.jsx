@@ -1,12 +1,61 @@
 import { useTranslation } from "react-i18next";
 import styles from "./home.module.css";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { BiMenu } from "react-icons/bi";
+import { headerNavbarData } from "../../exports/navbar";
 
 export const Home = () => {
   const { t } = useTranslation();
+  const [showMenu, setShowMenu] = useState(false);
+
   return (
     <section className={styles.section + " column"}>
-      <img src="./assets/header.jpg" alt="img" className={styles.slide} />
+      <header className={styles.header} >
+        <div className={styles["header-bg"]}></div>
+        <div className={styles.logo}>
+          <img src="./assets/logo-light.png" alt="logo" />
+        </div>
+        <div className={styles["menu-mob"]}>
+          <div
+            className={styles["mob-icon"]}
+            onClick={() => setShowMenu((prev) => !prev)}
+          >
+            <BiMenu />
+          </div>
+        </div>
+        <ul className={showMenu ? styles.show : ""}>
+          {headerNavbarData.map((item) => {
+            const { id, content } = item;
+            return (
+              <li key={id}>
+                <input type="radio" name="menu" id={id} />
+                <label htmlFor={id}>
+                  {!item?.links ? (
+                    <Link to={item.to}>{t(content)}</Link>
+                  ) : (
+                    <p>{t(content)}</p>
+                  )}
+                  {item.links ? (
+                    <ol>
+                      {item?.links?.map((item) => {
+                        const { id, content, to } = item;
+                        return (
+                          <li key={id} onClick={() => setShowMenu(false)}>
+                            <Link to={to}>{t(content)}</Link>
+                          </li>
+                        );
+                      })}
+                    </ol>
+                  ) : (
+                    ""
+                  )}
+                </label>
+              </li>
+            );
+          })}
+        </ul>
+      </header>
       <div className="container">
         <div className="section-slice">
           <div className="row1">
@@ -92,7 +141,7 @@ export const Home = () => {
           </div>
         </div>
       </div>
-      <div className="container">
+      <div className="container" >
         <div className="img-cards">
           <h2>{t("library")}</h2>
           <div className="cards">
