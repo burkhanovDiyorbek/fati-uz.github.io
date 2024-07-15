@@ -5,7 +5,7 @@
     align-items: center;
     width: 100%;
     min-height: 600px;
-    background-image: url("./assets/header.jpg");
+    background-image: url("/assets/header.jpg");
     overflow: hidden;
     max-height: 100vh;
     height: 100vh;
@@ -133,7 +133,7 @@
   }
   .header {
     position: relative;
-    background-image: url("./assets/header.jpg");
+    background-image: url("/assets/header.jpg");
     input {
       display: none;
     }

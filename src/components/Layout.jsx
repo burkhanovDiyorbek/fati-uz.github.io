@@ -9,19 +9,10 @@ export const Layout = () => {
 
   return (
     <>
-      <Scrollbar
-        ref={scrollbar}
-        plugins={{
-          overscroll: {
-            effect: "bounce",
-          },
-        }}
-      >
-        {window.location.href !== "https://fati-uz.vercel.app" ||
-          (window.location.href !== "http://localhost:5173/" && <Navbar />)}
-        <Outlet />
-        <Footer />
-      </Scrollbar>
+      {window.location.href !== "https://fati-uz.vercel.app" ||
+        (window.location.href !== "http://localhost:5173/" && <Navbar />)}
+      <Outlet />
+      <Footer />
     </>
   );
 };
