@@ -17,6 +17,7 @@
   .top_alert {
     padding-top: 4px;
     border-bottom: 2px solid #c5c5c50e;
+    background: transparent;
   }
 }
 .menu-mob {
