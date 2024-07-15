@@ -7,6 +7,8 @@ import { Search } from "../Search/Search";
 import i18n from "i18next";
 import { GrDown } from "react-icons/gr";
 import { BiMenu } from "react-icons/bi";
+import { ExchangeRates } from "./ExchangeRates";
+import { Time } from "./Time";
 
 export const Navbar = () => {
   const { t } = useTranslation();
@@ -19,11 +21,17 @@ export const Navbar = () => {
   }, [langVal]);
   return (
     <nav className={styles.navbar}>
+      <div className={styles.top_alert}>
+        <Time />
+        <div className={styles.wheather}></div>
+        <p className={styles.alert}>{t("test")}</p>
+        <ExchangeRates />
+      </div>
       <div className="container">
         <div className={styles.container}>
           <div className={styles.top}>
             <Link to={"/"} className={styles.logo}>
-              <img src="./assets/logo.png" alt="logo" />
+              <img src="./assets/logo-light.png" alt="logo" />
             </Link>
             <Search />
             <div className={styles.lang}>
@@ -64,7 +72,7 @@ export const Navbar = () => {
               <BiMenu />
             </div>
           </div>
-          <ul className={showMenu ? styles.show:''}>
+          <ul className={showMenu ? styles.show : ""}>
             {navbarData.map((item) => {
               const { id, content } = item;
               return (

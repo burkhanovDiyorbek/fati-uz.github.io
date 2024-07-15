@@ -34,8 +34,8 @@
   "global-projects": "International Projects",
   "global-researchers": "Foreign researchers",
   "search": "Search",
-  "search-results":"Search Results",
-  "home-page":"Home Page",
+  "search-results": "Search Results",
+  "home-page": "Home Page",
   "news": "News",
   "latest_news": "Latest News",
   "all_news": "All news",
@@ -52,5 +52,7 @@
   "email": "E-mail",
   "days": "Days",
   "community": "Our Community",
-  "history_title": "A Brief History of the Establishment of the Academy"
+  "history_title": "A Brief History of the Establishment of the Academy",
+  "test": "The site is in test mode!",
+  "more":"More"
 }

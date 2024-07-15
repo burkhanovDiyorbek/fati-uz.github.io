@@ -6,7 +6,7 @@ import { Scrollbar } from "smooth-scrollbar-react";
 
 export const Layout = () => {
   const scrollbar = useRef(null);
-  console.log(scrollbar);
+
   return (
     <>
       <Scrollbar
@@ -17,7 +17,8 @@ export const Layout = () => {
           },
         }}
       >
-        {window.location.href !== "http://localhost:5173/" && <Navbar />}
+        {window.location.href !== "https://fati-uz.vercel.app" ||
+          (window.location.href !== "http://localhost:5173/" && <Navbar />)}
         <Outlet />
         <Footer />
       </Scrollbar>

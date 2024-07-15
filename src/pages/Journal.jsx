@@ -3,8 +3,6 @@ import PageTop from "../components/PageTop/PageTop";
 import { archive } from "../exports/archive";
 
 export const Journal = () => {
-  // const [filter, setFilter] = useState("all");
-  // const [search, setSearch] = useState("");
   const [archiveYearVal, setArchiveYear] = useState("2000-2005");
   return (
     <section>

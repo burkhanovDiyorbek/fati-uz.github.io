@@ -3,7 +3,7 @@ import styles from "./home.module.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { BiMenu } from "react-icons/bi";
-import { headerNavbarData } from "../../exports/navbar";
+import { navbarData } from "../../exports/navbar";
 
 export const Home = () => {
   const { t } = useTranslation();
@@ -11,7 +11,7 @@ export const Home = () => {
 
   return (
     <section className={styles.section + " column"}>
-      <header className={styles.header} >
+      <header className={styles.header}>
         <div className={styles["header-bg"]}></div>
         <div className={styles.logo}>
           <img src="./assets/logo-light.png" alt="logo" />
@@ -25,7 +25,7 @@ export const Home = () => {
           </div>
         </div>
         <ul className={showMenu ? styles.show : ""}>
-          {headerNavbarData.map((item) => {
+          {navbarData.map((item) => {
             const { id, content } = item;
             return (
               <li key={id}>
@@ -118,6 +118,66 @@ export const Home = () => {
           </div>
         </div>
       </div>
+      <div className="container">
+        <div className="section-slice">
+          <div className="row1">
+            <h2>{t("about")}</h2>
+            <a href="/about">
+              <button>{t("more")}</button>
+            </a>
+          </div>
+          <div className="row2">
+            <div className="cards">
+              <Link to={"/about"} className="card">
+                <h3>
+                  The British Academy has partnered with Panos Pictures, an
+                  agency specialising in global social issues, on a photography
+                  commission to bring to life the themes of `Courting India`.
+                </h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Provident reprehenderit possimus et amet quibusdam ad rem
+                  eligendi iusto sit sequi cumque nisi qui veniam laboriosam
+                  praesentium nemo, suscipit neque. Quos minus enim, natus at
+                  recusandae ipsam dolorum sed hic nulla aspernatur dolor! Eos
+                  facere, sunt dicta obcaecati voluptate ab placeat? Temporibus,
+                  repellat eligendi magni amet, modi earum saepe facere nihil
+                  nam provident unde, aliquid voluptas et assumenda commodi ad
+                  sequi inventore veritatis consequatur cupiditate? Commodi nam
+                  quia aut aperiam, tenetur, excepturi dignissimos suscipit sint
+                  numquam, omnis debitis. Dolore temporibus vitae dolores
+                  repudiandae eius! Eum, labore culpa rerum delectus accusamus
+                  odio exercitationem nulla inventore, sed saepe atque ducimus
+                  animi rem cum, ut mollitia aliquam dignissimos corrupti maxime
+                  minus illo reiciendis? Molestiae animi perspiciatis ullam vel
+                  incidunt minima cum eos id voluptatem possimus quo, minus
+                  earum ducimus exercitationem nihil non voluptatum modi.
+                </p>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="container">
+        <div className="img-cards">
+          <h2>{t("centers")}</h2>
+          <div className="cards">
+            {Array(6)
+              .fill(0)
+              .map((_, index) => {
+                return (
+                  <div className="card" key={index}>
+                    <Link to={"/centers-and-departments?id=1"}>
+                      <img src="./assets/book-img.jpg" alt="" />
+                      <h3>New Centre for Innovative Education</h3>
+                    </Link>
+                  </div>
+                );
+              })}
+          </div>
+        </div>
+      </div>
+
       <div className="aside">
         <div className="aside-container">
           <div className="aside-img">
@@ -141,7 +201,30 @@ export const Home = () => {
           </div>
         </div>
       </div>
-      <div className="container" >
+      <div className="container">
+        <div className="img-cards" style={{ margin: "70px 0 90px" }}>
+          <h2>{t("gatherings")}</h2>
+          <ul>
+            {Array(4)
+              .fill(0)
+              .map((_, index) => {
+                return (
+                  <li key={index}>
+                    <Link to={"seminar?id="+(index+1)}>
+                      <p>{t("seminar" + (index + 1))}</p>
+                      <img
+                        src="./assets/icons/arrow.svg"
+                        alt="arrow"
+                        className="arrow"
+                      />
+                    </Link>
+                  </li>
+                );
+              })}
+          </ul>
+        </div>
+      </div>
+      <div className="container">
         <div className="img-cards">
           <h2>{t("library")}</h2>
           <div className="cards">
@@ -175,6 +258,7 @@ export const Home = () => {
           </div>
         </div>
       </div>
+
       <div className="aside green">
         <div className="aside-container">
           <div className="aside-img">

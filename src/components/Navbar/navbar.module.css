@@ -1,7 +1,22 @@
 .navbar {
   user-select: none;
+  background: #01012f;
+  padding-top: 40px;
+  color: #fff;
   input {
     display: none;
+    background: transparent;
+    color: inherit;
+  }
+  .logo {
+    width: 200px;
+    img {
+      max-width: 100%;
+    }
+  }
+  .top_alert {
+    padding-top: 4px;
+    border-bottom: 2px solid #c5c5c50e;
   }
 }
 .menu-mob {
@@ -26,7 +41,7 @@
     position: absolute;
     backdrop-filter: blur(100px);
     background: #01012f99;
-    top: 95px;
+    top: 150px;
     width: 100vw;
     left: 0;
     z-index: 10000;
@@ -79,7 +94,7 @@
   display: flex;
   flex-direction: column;
   font-size: 19px;
-  background: #0000000e;
+  background: #c5c5c50e;
   border-radius: 10px;
   padding: 10px 15px;
   cursor: pointer;
@@ -91,6 +106,24 @@
     img {
       width: 25px;
     }
+  }
+}
+
+.top_alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: absolute;
+  padding-bottom: 20px;
+  background: #000;
+  left: 0;
+  top: 10px;
+  height: 20px;
+  color: #fff;
+  width: 100vw;
+  div {
+    display: flex !important;
+    align-items: center;
   }
 }
 
@@ -143,6 +176,17 @@
       }
     }
   }
+  .top_alert {
+    display: none;
+  }
+  .navbar {
+    padding-top: 0;
+  }
+  .container {
+    .show {
+      top: 175px;
+    }
+  }
 }
 
 @media (max-width: 450px) {
@@ -162,7 +206,7 @@
   }
   .container {
     .show {
-      top: 125px;
+      top: 175px;
       max-width: 100%;
       ol {
         max-width: 100%;

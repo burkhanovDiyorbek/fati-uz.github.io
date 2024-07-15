@@ -109,9 +109,12 @@ body {
 .img-cards {
   display: flex;
   flex-direction: column;
+  margin-bottom: 40px;
   .cards {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
+    row-gap: 40px;
   }
   h2 {
     border-bottom: 1px solid #e0e0e0;
@@ -138,6 +141,29 @@ body {
   }
   .card:last-child {
     border-right: none;
+  }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    li {
+      width: 44%;
+      min-width: 321px;
+      border-bottom: 1px solid #e0e0e0;
+      padding: 10px;
+      a {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 5px;
+      }
+      &:nth-of-type(odd) {
+        border-right: 1px solid #e0e0e0;
+      }
+      img {
+        margin-left: auto;
+      }
+    }
   }
 }
 
@@ -746,6 +772,12 @@ body {
         border: 1px solid #e0e0e0;
         padding: 4px;
         margin-bottom: 5px;
+        img{
+          margin: 0!important;
+        }
+        h3{
+          margin: 10px!important;
+        }
       }
     }
   }
@@ -1020,10 +1052,10 @@ body {
     li {
       width: 100%;
       border-right: none !important;
-      border-bottom: 1px solid #e0e0e0!important;
-      padding: 15px 0!important;
+      border-bottom: 1px solid #e0e0e0 !important;
+      padding: 15px 0 !important;
     }
-    .active{
+    .active {
       background: #e0e0e0;
       color: #000;
     }

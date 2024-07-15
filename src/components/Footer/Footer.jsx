@@ -14,6 +14,9 @@ export const Footer = () => {
               <b>{t("footer_title_b")}</b>
               {t("footer_title_p")}
             </p>
+            <Link to={"/"}>
+              <img src="./assets/logo-light.png" alt="logo light" />
+            </Link>
           </div>
           <div className={styles.row2}>
             <div>
