@@ -163,7 +163,7 @@ export const Home = () => {
         <div className="img-cards">
           <h2>{t("centers")}</h2>
           <div className="cards">
-            {Array(6)
+            {Array(7)
               .fill(0)
               .map((_, index) => {
                 return (
