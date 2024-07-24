@@ -14,7 +14,7 @@ const PageTop = ({ data }) => {
           <span>{t(data?.h2)}</span>
         </p>
       </div>
-      <img src="./assets/top-bg.png" alt="" />
+      <img src="/assets/top-bg.png" alt="" />
     </div>
   );
 };

@@ -4,9 +4,9 @@ import { useLocation } from "react-router-dom";
 import Slider from "../../components/Slider";
 
 const slideData = [
-  { id: 0, img_link: "./assets/about-header.jpg" },
-  { id: 2, img_link: "./assets/structure.jpg" },
-  { id: 1, img_link: "./assets/top-bg.png" },
+  { id: 0, img_link: "/assets/about-header.jpg" },
+  { id: 2, img_link: "/assets/structure.jpg" },
+  { id: 1, img_link: "/assets/top-bg.png" },
 ];
 
 export const CentersAndDepartments = () => {
@@ -180,16 +180,16 @@ export const CentersAndDepartments = () => {
           <h2>gallery</h2>
           <div className="cards">
             <div className="card">
-              <img src="./assets/about-header.jpg" alt="about" />
+              <img src="/assets/about-header.jpg" alt="about" />
             </div>
             <div className="card">
-              <img src="./assets/about-header.jpg" alt="about" />
+              <img src="/assets/about-header.jpg" alt="about" />
             </div>
             <div className="card">
-              <img src="./assets/about-header.jpg" alt="about" />
+              <img src="/assets/about-header.jpg" alt="about" />
             </div>
             <div className="card">
-              <img src="./assets/about-header.jpg" alt="about" />
+              <img src="/assets/about-header.jpg" alt="about" />
             </div>
           </div>
         </div>

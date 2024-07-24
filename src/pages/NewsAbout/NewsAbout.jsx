@@ -19,7 +19,7 @@ export const NewsAbout = () => {
           <h2>Funding announced for Official Development Assistance</h2>
           <span>5 JUL 2024</span>
           <div className={styles.img}>
-            <img src="./assets/about-header.jpg" alt="img" />
+            <img src="/assets/about-header.jpg" alt="im g" />
           </div>
           <ul>
             <li>
@@ -75,40 +75,40 @@ export const NewsAbout = () => {
           <h2>Latest News</h2>
           <div className="cards">
             <Link to={"/news/1"} className="card">
-              <img src="./assets/book-img.jpg" alt="book" />
+              <img src="/assets/book-img.jpg" alt="book" />
               <h3>Investing in a 21st Century Educational Research System</h3>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Facilis, voluptatum.
               </p>
               <img
-                src="./assets/icons/arrow.svg "
+                src="/assets/icons/arrow.svg "
                 alt="arrow img"
                 className="arrow"
               />
             </Link>
             <Link to={"/news/1"} className="card">
-              <img src="./assets/book-img.jpg" alt="book" />
+              <img src="/assets/book-img.jpg" alt="book" />
               <h3>Investing in a 21st Century Educational Research System</h3>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Facilis, voluptatum.
               </p>
               <img
-                src="./assets/icons/arrow.svg "
+                src="/assets/icons/arrow.svg "
                 alt="arrow img"
                 className="arrow"
               />
             </Link>
             <Link to={"/news/1"} className="card">
-              <img src="./assets/book-img.jpg" alt="book" />
+              <img src="/assets/book-img.jpg" alt="book" />
               <h3>Investing in a 21st Century Educational Research System</h3>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Facilis, voluptatum.
               </p>
               <img
-                src="./assets/icons/arrow.svg "
+                src="/assets/icons/arrow.svg "
                 alt="arrow img"
                 className="arrow"
               />

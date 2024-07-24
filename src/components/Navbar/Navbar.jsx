@@ -30,7 +30,7 @@ export const Navbar = () => {
         <div className={styles.container}>
           <div className={styles.top}>
             <Link to={"/"} className={styles.logo}>
-              <img src="./assets/logo-light.png" alt="logo" />
+              <img src="/assets/logo-light.png" alt="logo" />
             </Link>
             <Search />
             <div className={styles.lang}>
@@ -39,7 +39,7 @@ export const Navbar = () => {
                 onClick={() => setShowLang((prev) => !prev)}
               >
                 <img
-                  src={`./assets/${langVal == "en" ? "english" : "uzbek"}.png`}
+                  src={`/assets/${langVal == "en" ? "english" : "uzbek"}.png`}
                   alt="flag"
                 />
                 <p> {langVal == "en" ? "English" : "O'zbekcha"}</p>
@@ -53,7 +53,7 @@ export const Navbar = () => {
                   className={styles.change}
                 >
                   <img
-                    src={`./assets/${
+                    src={`/assets/${
                       langVal != "en" ? "english" : "uzbek"
                     }.png`}
                     alt="flag"
