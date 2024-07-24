@@ -110,6 +110,9 @@ body {
   display: flex;
   flex-direction: column;
   margin-bottom: 40px;
+  .no-border{
+    border-bottom: none;
+  }
   .cards {
     display: flex;
     flex-wrap: wrap;

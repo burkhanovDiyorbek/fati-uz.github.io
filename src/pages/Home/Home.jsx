@@ -178,6 +178,25 @@ export const Home = () => {
           </div>
         </div>
       </div>
+      <div className="container">
+        <div className="img-cards">
+          <h2>{t("councils")}</h2>
+          <ul>
+            <li className="no-border">
+              <Link to={"scientific-degree"}>
+                <p>{t("scientific-degree")}</p>
+                <img src="./assets/icons/arrow.svg" alt="arrow" />
+              </Link>
+            </li>
+            <li className="no-border">
+              <Link to={"scientific-degree"}>
+                <p> {t("sc-young")}</p>
+                <img src="./assets/icons/arrow.svg" alt="arrow" />
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div>
       <div className="aside">
         <div className="aside-container">
           <div className="aside-img">
