@@ -77,7 +77,7 @@
         opacity: 0;
         visibility: hidden;
         position: absolute;
-        top: 45px;
+        top: 40px;
         transition: opacity 0.15s ease;
         background: #000000;
         backdrop-filter: blur(100px);

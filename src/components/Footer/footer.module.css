@@ -65,6 +65,9 @@
 }
 
 @media (max-width:900px) {
+  .logo{
+    width: 80%;
+  }
   .column{
     flex-direction: column;
     .row1{

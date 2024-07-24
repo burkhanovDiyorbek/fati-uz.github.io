@@ -49,6 +49,13 @@ const App = () => {
     }, 500);
   }, [pathname]);
 
+  useEffect(() => {
+    document.title =
+      localStorage.getItem("i18lng") == "uz"
+        ? "O'zbekiston fanlar akademiyasi Tarix instituti"
+        : "Institute of History of the Academy of Sciences of Uzbekistan";
+  }, [localStorage.getItem("i18lng")]);
+
   return (
     <Routes>
       <Route path="/" element={<Layout />}>

@@ -1,36 +1,23 @@
-import { useTranslation } from "react-i18next";
 import styles from "./centers-and-departments.module.css";
 import PageTop from "../../components/PageTop/PageTop";
 import { useLocation } from "react-router-dom";
+import Slider from "../../components/Slider";
+
+const slideData = [
+  { id: 0, img_link: "./assets/about-header.jpg" },
+  { id: 2, img_link: "./assets/structure.jpg" },
+  { id: 1, img_link: "./assets/top-bg.png" },
+];
 
 export const CentersAndDepartments = () => {
-  const { t } = useTranslation();
   const { search } = useLocation();
   let id = search.at(-1);
+
+
   return (
     <section className={styles.section}>
       <PageTop data={{ h2: "centers" + id }} />
-      <div className="aside">
-        <div className="aside-container">
-          <div className="aside-img">
-            <img src="./assets/about-header.jpg" alt="about" />d
-          </div>
-          <div className="aside-content">
-            <h2>Lorem ipsum solid</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente
-              nostrum est tenetur ea, quaerat delectus! Consequuntur quod saepe
-              blanditiis, cumque autem ipsa provident explicabo eveniet quis
-              impedit sint id optio nihil? Nam suscipit doloribus fugit pariatur
-              architecto repellat ipsum aliquid vel saepe officiis officia
-              temporibus ipsam, magnam illo aliquam eum? Fuga nemo vero ducimus
-              doloremque accusantium distinctio? Mollitia libero repellendus,
-              laborum error eos neque similique deserunt voluptas tempore
-              explicabo nobis.
-            </p>
-          </div>
-        </div>
-      </div>
+      <Slider slideData={slideData} />
       <div className="container">
         <div className="section-slice">
           <div className="row1">
@@ -120,7 +107,7 @@ export const CentersAndDepartments = () => {
               A iusto ut fuga laudantium expedita sapiente. Molestiae hic magnam
               velit recusandae nemo quas, nostrum accusantium ab et dicta
               fugiat? Inventore fugiat soluta consectetur quas nobis repudiandae
-              quam! 
+              quam!
             </p>
           </div>
         </div>
@@ -189,7 +176,7 @@ export const CentersAndDepartments = () => {
         </div>
       </div>
       <div className="container">
-        <div className="img-cards" style={{marginTop:"70px"}}>
+        <div className="img-cards" style={{ marginTop: "70px" }}>
           <h2>gallery</h2>
           <div className="cards">
             <div className="card">

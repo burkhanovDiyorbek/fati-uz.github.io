@@ -40,6 +40,7 @@ export const navbarData = [
       { id: 3, content: "centers4", to: "/centers-and-departments?id=4" },
       { id: 4, content: "centers5", to: "/centers-and-departments?id=5" },
       { id: 5, content: "centers6", to: "/centers-and-departments?id=6" },
+      { id: 5, content: "centers7", to: "/centers-and-departments?id=7" },
     ],
   },
   {

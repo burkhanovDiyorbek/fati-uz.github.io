@@ -7,8 +7,8 @@ import { Search } from "../Search/Search";
 import i18n from "i18next";
 import { GrDown } from "react-icons/gr";
 import { BiMenu } from "react-icons/bi";
-import { ExchangeRates } from "./ExchangeRates";
 import { Time } from "./Time";
+import { Wheater } from "./Wheater";
 
 export const Navbar = () => {
   const { t } = useTranslation();
@@ -23,9 +23,8 @@ export const Navbar = () => {
     <nav className={styles.navbar}>
       <div className={styles.top_alert}>
         <Time />
-        <div className={styles.wheather}></div>
         <p className={styles.alert}>{t("test")}</p>
-        <ExchangeRates />
+        <Wheater />
       </div>
       <div className="container">
         <div className={styles.container}>

@@ -1,6 +1,17 @@
 .div {
   display: flex;
   gap: 5px;
-  width: 120px;
+  width: auto;
   font-size: 12px;
+  b {
+    width: 20px;
+    display: block;
+  }
+  div {
+    display: flex;
+    gap: 5px;
+    p {
+      display: flex;
+    }
+  }
 }
