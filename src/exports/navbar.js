@@ -46,10 +46,10 @@ export const navbarData = [
   {
     id: 2,
     content: "councils",
-    to: "/councils",
     links: [
-      { id: 0, content: "scientific-degree", to: "/scientific-degree" },
-      { id: 1, content: "sc-young", to: "/sc-young" },
+      { id: 0, content: "sc-council", to: "sc-council" },
+      { id: 1, content: "scientific-degree", to: "/scientific-degree" },
+      { id: 2, content: "sc-young", to: "/sc-young" },
     ],
   },
   {
@@ -94,4 +94,14 @@ export const navbarData = [
       { id: 3, content: "sources", to: "/sources" },
     ],
   },
+];
+
+export const footerData = [
+  { id: 0, content: "about", to: "/about" },
+  { id: 1, content: "news", to: "news" },
+  { id: 2, content: "sc-young", to: "sc-young" },
+  { id: 3, content: "journal", to: "journal" },
+  { id: 4, content: "abstracts", to: "/abstracts" },
+  { id: 5, content: "e-books", to: "/e-books" },
+  { id: 6, content: "sources", to: "/sources" },
 ];

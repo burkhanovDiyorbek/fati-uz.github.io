@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import styles from "./footer.module.css";
-import { navbarData } from "../../exports/navbar";
+import { footerData } from "../../exports/navbar";
 import { Link } from "react-router-dom";
 
 export const Footer = () => {
@@ -23,7 +23,7 @@ export const Footer = () => {
               <h2>{t("site_map")}</h2>
               <nav>
                 <ul>
-                  {navbarData.map((item, index) => {
+                  {footerData.map((item, index) => {
                     const { id, content, to } = item;
                     return (
                       index < 4 && (
@@ -35,7 +35,7 @@ export const Footer = () => {
                   })}
                 </ul>
                 <ul>
-                  {navbarData.map((item, index) => {
+                  {footerData.map((item, index) => {
                     const { id, content, to } = item;
                     return (
                       index > 4 && (
