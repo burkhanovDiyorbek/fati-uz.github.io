@@ -158,13 +158,13 @@
     display: flex;
     justify-content: space-evenly;
     backdrop-filter: blur(100px);
+    -webkit-backdrop-filter: blur(100px);
     background: #01012f99;
     position: absolute;
     left: 0;
     width: 100vw;
     padding: 10px;
     z-index: 99999999999;
-    left: 0;
     .mob-icon {
       border: 2px solid #fff;
       display: inline-block;
@@ -207,7 +207,7 @@
   }
   .container {
     .show {
-      top: 175px;
+      top: 150px;
       max-width: 100%;
       ol {
         max-width: 100%;
@@ -216,5 +216,16 @@
   }
   .clc {
     margin-bottom: 5px;
+  }
+  .menu-mob{
+    padding: 5px;
+    justify-content: end;
+    .mob-icon{
+      padding: 2px;
+    }
+    svg{
+      width: 20px;
+      height: 20px;
+    }
   }
 }

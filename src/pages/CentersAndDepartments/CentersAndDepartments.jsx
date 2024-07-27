@@ -2,6 +2,7 @@ import styles from "./centers-and-departments.module.css";
 import PageTop from "../../components/PageTop/PageTop";
 import { useLocation } from "react-router-dom";
 import Slider from "../../components/Slider";
+import { useTranslation } from "react-i18next";
 
 const slideData = [
   { id: 0, img_link: "/assets/about-header.jpg" },
@@ -12,7 +13,7 @@ const slideData = [
 export const CentersAndDepartments = () => {
   const { search } = useLocation();
   let id = search.at(-1);
-
+  const { t } = useTranslation();
 
   return (
     <section className={styles.section}>
@@ -21,7 +22,7 @@ export const CentersAndDepartments = () => {
       <div className="container">
         <div className="section-slice">
           <div className="row1">
-            <h2>tarixi</h2>
+            <h2>{t("history")}</h2>
           </div>
           <div className="row2">
             <p>
@@ -114,7 +115,7 @@ export const CentersAndDepartments = () => {
       </div>
       <div className="container">
         <div className="community">
-          <h2 className="title">xodimlar</h2>
+          <h2 className="title">{t("staff")}</h2>
           <div className="cards">
             <div className="card">
               <div className="content">
@@ -177,7 +178,7 @@ export const CentersAndDepartments = () => {
       </div>
       <div className="container">
         <div className="img-cards" style={{ marginTop: "70px" }}>
-          <h2>gallery</h2>
+          <h2>{t('gallery')}</h2>
           <div className="cards">
             <div className="card">
               <img src="/assets/about-header.jpg" alt="about" />

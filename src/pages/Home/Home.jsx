@@ -123,9 +123,9 @@ export const Home = () => {
         <div className="section-slice">
           <div className="row1">
             <h2>{t("about")}</h2>
-            <a href="/about">
+            <Link to="/about">
               <button>{t("more")}</button>
-            </a>
+            </Link>
           </div>
           <div className="row2">
             <div className="cards">
@@ -191,6 +191,12 @@ export const Home = () => {
             <li className="no-border">
               <Link to={"scientific-degree"}>
                 <p> {t("sc-young")}</p>
+                <img src="./assets/icons/arrow.svg" alt="arrow" />
+              </Link>
+            </li>
+            <li className="no-border">
+              <Link to={"scientific-degree"}>
+                <p> {t("sc-council")}</p>
                 <img src="./assets/icons/arrow.svg" alt="arrow" />
               </Link>
             </li>
@@ -359,7 +365,7 @@ export const Home = () => {
               .fill(0)
               .map((_, index) => {
                 return (
-                  <li key={index}>
+                  <li key={index} className="no-border">
                     <Link to={"seminar?id=" + (index + 1)}>
                       <p>{t("seminar" + (index + 1))}</p>
                       <img
@@ -435,7 +441,7 @@ export const Home = () => {
         <div className="quick-links">
           <h2>Foydali havolalar</h2>
           <div className="cards">
-            <a className="card" href="/" target="_blank">
+            <a className="card no-border" href="/" target="_blank">
               <div className="card-img">
                 <img
                   src="	https://my.gov.uz/svg/logotype.svg"
@@ -444,19 +450,27 @@ export const Home = () => {
               </div>
               <p>Davlat Xizmatlari Markazi</p>
             </a>
-            <a className="card" href="https://jadidlar.uz" target="_blank">
+            <a
+              className="card no-border"
+              href="https://jadidlar.uz"
+              target="_blank"
+            >
               <div className="card-img">
                 <img src="./assets/jadidlar.svg" alt="quick link" />
               </div>
               <p>Jadidlar.uz</p>
             </a>
-            <a className="card" href="https://tarix-manba.uz" target="_blank">
+            <a
+              className="card no-border"
+              href="https://tarix-manba.uz"
+              target="_blank"
+            >
               <div className="card-img">
                 <img src="./assets/quick-links.jpg" alt="quick link" />
               </div>
               <p>Tarix Manba</p>
             </a>
-            <a className="card" href="/" target="_blank">
+            <a className="card no-border" href="/" target="_blank">
               <div className="card-img">
                 <img
                   src="https://uzbmb.uz/upload/file/setting/Logo.png"
@@ -465,7 +479,7 @@ export const Home = () => {
               </div>
               <p>UZBMB.UZ</p>
             </a>
-            <a className="card" href="/" target="_blank">
+            <a className="card no-border" href="/" target="_blank">
               <div className="card-img">
                 <img src="./assets/quick-links.jpg" alt="quick link" />
               </div>

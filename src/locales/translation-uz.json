@@ -1,6 +1,6 @@
 {
   "about": "Institut haqida",
-  "centers": "Markaz va Bo'limlar",
+  "centers": "Bo'limlar va markazlar",
   "councils": "Kengashlar",
   "doctorals": "Doktorantura",
   "gatherings": "Yig'inlar",
@@ -18,7 +18,7 @@
   "centers6": "Etnologiya va antropologiya markazi",
   "centers7": "Tarixshunoslik va manbashunoslik markazi",
   "scientific-degree": "Ilmiy daraja beruvchi kengash",
-  "sc-council":"Institut ilmiy kengashi",
+  "sc-council": "Institut ilmiy kengashi",
   "sc-young": "Yosh olimlar kengashi",
   "doc-admission": "Qabul tartibi",
   "doctaurants": "Doktorantlar",
@@ -39,7 +39,7 @@
   "search-results": "Qidiruv natijalari",
   "home-page": "Bosh sahifa",
   "news": "Yangiliklar",
-  "latest_news": "So'ngi yangiliklar",
+  "latest_news": "So'nggi yangiliklar",
   "all_news": "Barcha yangiliklar",
   "footer_title_b": "Oʻzbekiston Respublikasi Fanlar Akademiyasining Tarix instituti",
   "footer_title_p": " — oʻzbek xalqi va uning davlatchiligi tarixini oʻrganuvchi, tarix sohasidagi ilmiy tadqiqotlarlarni muvofiqlashtiruvchi, yuqori malakali ilmiy kadrlar tayyorlovchi tadqiqot muassasasi.",
@@ -56,5 +56,15 @@
   "community": "Bizning Jamoa",
   "history_title": "Akademiyaning tashkil etilishi haqida qisqacha ma'lumot",
   "test": "Sinov Holatida!",
-  "more": "Ko'proq"
+  "more": "Ko'proq",
+  "history": "Tarixi",
+  "staff": "Xodimlar",
+  "gallery": "Fotosuratlar",
+  "authors": "Tahrirchilar",
+  "archive": "Arxiv",
+  "archives": "arxiv sonlari",
+  "sort-by":"Saralash:",
+  "published":"Nashr sanasi",
+  "newest":"yangi",
+  "oldest":"eski"
 }

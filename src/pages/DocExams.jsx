@@ -6,7 +6,7 @@ export const DocExams = () => {
       <PageTop data={{ h2: "doc-exams" }} />
       <div className="container">
         <div className="section-slice">
-          <div className="row1">
+          <div className="row1 column">
             <h2> Malakaviy imtihon o‘tkazish tartibi</h2>
             <img src="./assets/about-header.jpg" alt="img" />
           </div>

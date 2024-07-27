@@ -19,7 +19,7 @@ export const Sources = () => {
             <label>
               <input
                 type="text"
-                placeholder="search anything"
+                placeholder={t("search")}
                 onInput={(e) => setSearch(e.target.value)}
               />
               <FaSearch />

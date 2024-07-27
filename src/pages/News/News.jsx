@@ -14,18 +14,18 @@ export const News = () => {
       <div className="container">
         <div className="community">
           <ul className="news-sort">
-            <li>Sort by</li>
+            <li>{t("sort-by")}</li>
             <li
               className={sortVal == "newest" ? "active" : ""}
               onClick={() => setSortVal("newest")}
             >
-              Published (newest)
+              {t("published")} ({t("newest")})
             </li>
             <li
               className={sortVal == "oldest" ? "active" : ""}
               onClick={() => setSortVal("oldest")}
             >
-              Published (oldest)
+              {t("published")} ({t("oldest")})
             </li>
             <li
               className={sortVal == "a-z" ? "active" : ""}

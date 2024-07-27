@@ -6,7 +6,7 @@ export const GlobalPartners = () => {
       <PageTop data={{ h2: "global-partners" }} />
       <div className="container">
         <div className="section-slice">
-          <div className="row1">
+          <div className="row1 column">
             <h2>Hamkor tashkilotlar</h2>
             <img src="./assets/header.jpg" alt="header" />
           </div>

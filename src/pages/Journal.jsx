@@ -1,19 +1,21 @@
 import { useState } from "react";
 import PageTop from "../components/PageTop/PageTop";
 import { archive } from "../exports/archive";
+import { useTranslation } from "react-i18next";
 
 export const Journal = () => {
   const [archiveYearVal, setArchiveYear] = useState("2000-2005");
+  const { t } = useTranslation();
   return (
     <section>
       <PageTop data={{ h2: "journal" }} />
       <div className="container">
-        <h2>O&rsquo;ZBEKISTON TARIXI JURNALI</h2>
+        <h2>{t("journal")}</h2>
       </div>
       <div className="container">
         <div className="section-slice">
-          <div className="row1">
-            <h2>Tahririyat</h2>
+          <div className="row1 column">
+            <h2>{t("authors")}</h2>
             <img src="./assets/journal.jpg" alt="book jpg" />
           </div>
           <div className="row2">
@@ -114,14 +116,14 @@ export const Journal = () => {
         </div>
       </div>
       <div className="container">
-        <h2 style={{marginBottom:"20px"}}>
-          <q>O&apos;zbekiston tarixi jurnali</q> arxiv sonlari
+        <h2 style={{ marginBottom: "20px" }}>
+          <q>{t("journal")}</q> {t('archives')}
         </h2>
       </div>
       <div className="container" style={{ flexDirection: "column" }}>
         <div className="archive">
           <div className="left">
-            <h2>Arxiv</h2>
+            <h2>{t('archive')}</h2>
             <ul>
               {archive.map((item) => {
                 const { id, value } = item;
