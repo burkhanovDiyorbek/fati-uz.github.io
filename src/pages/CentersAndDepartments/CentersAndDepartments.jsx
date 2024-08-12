@@ -3,113 +3,49 @@ import PageTop from "../../components/PageTop/PageTop";
 import { useLocation } from "react-router-dom";
 import Slider from "../../components/Slider";
 import { useTranslation } from "react-i18next";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import PropTypes from "prop-types";
 
-const slideData = [
-  { id: 0, img_link: "/assets/about-header.jpg" },
-  { id: 2, img_link: "/assets/structure.jpg" },
-  { id: 1, img_link: "/assets/top-bg.png" },
-];
-
-export const CentersAndDepartments = () => {
+export const CentersAndDepartments = ({ setLoading, loading }) => {
   const { search } = useLocation();
   let id = search.at(-1);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language;
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
 
+        await axios
+          .get("/markazlar-va-bolimlar/markazlar_bolimlar/" + id)
+          .then((req) => setData(req.data));
+        setLoading(false);
+      } catch (error) {
+        setLoading("show-p");
+      }
+    };
+    fetchData();
+  }, []);
+  console.log(data);
+  if (loading === "show-p") {
+    return <p className="show-p-error">{t("show-p-error")}</p>;
+  }
+  if (loading === true) {
+    return <div className="loader"></div>;
+  }
   return (
     <section className={styles.section}>
       <PageTop data={{ h2: "centers" + id }} />
-      <Slider slideData={slideData} />
+      <Slider slideData={data?.slider} />
       <div className="container">
         <div className="section-slice">
           <div className="row1">
             <h2>{t("history")}</h2>
           </div>
           <div className="row2">
-            <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Earum,
-              dignissimos quas obcaecati et iste necessitatibus pariatur nam
-              fugiat ipsum excepturi assumenda minus eligendi repudiandae
-              perferendis corrupti nostrum tempora animi! Voluptatum numquam ab,
-              magnam earum ullam maxime porro. Ullam ratione voluptate
-              distinctio autem atque possimus, veniam eaque molestiae mollitia
-              enim qui soluta dolorem quas et voluptatum molestias tenetur ipsa
-              eligendi alias minima, nulla eos magni! Cum molestiae similique
-              aspernatur quae sed quia excepturi velit ullam aperiam inventore
-              assumenda nesciunt itaque id, adipisci maiores molestias omnis
-              soluta magnam! Asperiores, a beatae vel dicta voluptatum aliquid
-              porro iusto? Nobis, obcaecati neque commodi numquam maiores nam
-              asperiores quia ipsum consequuntur. Ipsa ex architecto eaque
-              autem. Officiis veniam consequuntur maxime quod ipsam numquam non
-              voluptas, dolore porro animi unde facere a est ipsum voluptates
-              assumenda quia! Cum, velit perspiciatis. Architecto
-              exercitationem, dolor sunt officiis esse earum ut ratione
-              excepturi placeat pariatur aperiam repellat temporibus ab.
-              Perferendis perspiciatis tempora quos inventore mollitia placeat
-              ut, ab nesciunt tenetur pariatur, provident animi voluptate quae
-              optio odio iste eaque quisquam omnis officia repudiandae, ad
-              minima at facere voluptatem. Laborum corrupti alias odit beatae
-              molestias? Libero error amet, consectetur dolor maiores eos
-              molestias eligendi possimus tempora reprehenderit. Eaque sunt
-              voluptatem doloremque provident ducimus qui veniam assumenda, et
-              praesentium similique. Accusamus, accusantium laborum ex magni
-              dolor aliquid consequuntur veniam aperiam quisquam, rerum,
-              repudiandae impedit amet dolorum. Culpa delectus provident nobis
-              officia quia harum amet modi officiis autem obcaecati, quibusdam
-              explicabo corporis iste deleniti accusantium. Officia quia dolorum
-              aperiam inventore sunt reiciendis corrupti sapiente quod earum
-              illum eaque voluptatibus quis debitis a, voluptatum velit ea unde
-              facilis aut ut provident. Sequi, rem tempora error soluta odio
-              repellat expedita delectus, voluptatem molestiae ullam provident
-              earum perspiciatis placeat aliquam vero veritatis doloremque qui.
-              Est numquam suscipit alias laborum maiores pariatur ut repellat
-              earum delectus. Iure officiis, at aspernatur ratione corporis
-              deleniti aut deserunt tenetur ex odio, tempora eum dolorem! Nulla
-              voluptatum ad rerum facilis rem ea laudantium magni, incidunt
-              assumenda voluptatibus fuga? Perspiciatis beatae ab repellendus
-              similique totam maiores ex eos quo dignissimos, eum, sed nemo
-              dolorum vel nobis sunt voluptatum omnis optio laborum sint dolore
-              ea dolor neque veritatis. Ipsa vel nulla autem dolorum repellendus
-              libero, eum modi earum minima repellat in explicabo ex optio,
-              dolores quibusdam id nobis cumque? Provident rerum ea repellat
-              totam fugit odit, numquam nisi nostrum iusto, eos quia magni
-              corporis esse. Excepturi aperiam accusantium quae distinctio
-              exercitationem ut sit deserunt repellat corrupti, animi, magni
-              mollitia nihil doloribus iusto qui tempora alias aliquid
-              repellendus, iste corporis vero tempore. Officiis dicta quo
-              repellendus incidunt dolorem quis, nulla at non facilis voluptatem
-              eveniet, tempore totam nisi voluptatibus sit! Ut ullam iure beatae
-              assumenda quos officiis amet blanditiis rerum sapiente officia
-              aperiam inventore reiciendis molestiae odit dicta sequi
-              perspiciatis quia, corrupti provident adipisci facere quod
-              dolores. Autem magnam ullam reiciendis doloremque unde nisi iure
-              aliquam. Quasi quos voluptatibus illum quaerat, eius sequi
-              officiis repudiandae pariatur non odio assumenda temporibus autem
-              porro! Dolore atque nihil maiores nulla consequatur autem omnis
-              porro tenetur, vero aspernatur recusandae reprehenderit ipsa
-              nobis, harum, veniam asperiores placeat debitis excepturi neque
-              nisi quibusdam. Blanditiis, ipsa. Doloribus recusandae earum
-              consectetur quas corrupti. Debitis corporis eos, aut assumenda
-              accusantium sequi libero commodi natus nam placeat praesentium
-              vero cupiditate. Et eveniet facilis inventore rerum? Commodi,
-              odio! Animi iure at pariatur, atque nulla dicta nostrum
-              reprehenderit eveniet officia nemo adipisci eum ullam tempora?
-              Inventore quo assumenda adipisci minima cum sint. Dicta, neque
-              eveniet consequatur vel illum modi beatae atque numquam
-              consectetur sunt sint ad, exercitationem enim impedit
-              perspiciatis? Facere ipsa expedita debitis, veritatis consectetur
-              eaque exercitationem cupiditate facilis doloribus quos velit
-              delectus illo inventore ea fugit repellat sit repudiandae vero,
-              repellendus molestiae laudantium nulla sunt! Assumenda maxime
-              animi rem praesentium cum sed, amet, corrupti accusantium nulla,
-              voluptatem reiciendis nihil iusto similique modi ipsum tempora
-              distinctio quisquam ad? Facere quisquam nihil explicabo suscipit
-              fugit recusandae vitae aut, eum totam maxime consectetur iste,
-              labore aliquam voluptate beatae minus veritatis accusantium atque.
-              A iusto ut fuga laudantium expedita sapiente. Molestiae hic magnam
-              velit recusandae nemo quas, nostrum accusantium ab et dicta
-              fugiat? Inventore fugiat soluta consectetur quas nobis repudiandae
-              quam!
-            </p>
+            <p dangerouslySetInnerHTML={{ __html: data?.[`tarix_${lang}`] }} />
           </div>
         </div>
       </div>
@@ -117,84 +53,39 @@ export const CentersAndDepartments = () => {
         <div className="community">
           <h2 className="title">{t("staff")}</h2>
           <div className="cards">
-            <div className="card">
-              <div className="content">
-                <p>PRESIDENT OF THE BRITISH ACADEMY</p>
-                <h2>Professor Julia Black PBA</h2>
-                <span>Tarix fanlari doktori, professor</span>
-              </div>
-            </div>
-            <div className="card">
-              <div className="content">
-                <p>PRESIDENT OF THE BRITISH ACADEMY</p>
-                <h2>Professor Julia Black PBA</h2>
-                <span>Tarix fanlari doktori, professor</span>
-              </div>
-            </div>
-            <div className="card">
-              <div className="content">
-                <p>PRESIDENT OF THE BRITISH ACADEMY</p>
-                <h2>Professor Julia Black PBA</h2>
-                <span>Tarix fanlari doktori, professor</span>
-              </div>
-            </div>
-            <div className="card">
-              <div className="content">
-                <p>PRESIDENT OF THE BRITISH ACADEMY</p>
-                <h2>Professor Julia Black PBA</h2>
-                <span>Tarix fanlari doktori, professor</span>
-              </div>
-            </div>
-            <div className="card">
-              <div className="content">
-                <p>PRESIDENT OF THE BRITISH ACADEMY</p>
-                <h2>Professor Julia Black PBA</h2>
-                <span>Tarix fanlari doktori, professor</span>
-              </div>
-            </div>
-            <div className="card">
-              <div className="content">
-                <p>PRESIDENT OF THE BRITISH ACADEMY</p>
-                <h2>Professor Julia Black PBA</h2>
-                <span>Tarix fanlari doktori, professor</span>
-              </div>
-            </div>
-            <div className="card">
-              <div className="content">
-                <p>PRESIDENT OF THE BRITISH ACADEMY</p>
-                <h2>Professor Julia Black PBA</h2>
-                <span>Tarix fanlari doktori, professor</span>
-              </div>
-            </div>
-            <div className="card">
-              <div className="content">
-                <p>PRESIDENT OF THE BRITISH ACADEMY</p>
-                <h2>Professor Julia Black PBA</h2>
-                <span>Tarix fanlari doktori, professor</span>
-              </div>
-            </div>
+            {data?.xodimlar?.map((item, index) => {
+              return (
+                <div className="card" key={item?.id * Math.random() || index}>
+                  <div className="content">
+                    <p>{item?.[`lavozim_${lang}`]}</p>
+                    <h2>{item?.[`name_${lang}`]}</h2>
+                    <span>{item?.[`ilmiy_daraja_${lang}`]}</span>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
       <div className="container">
         <div className="img-cards" style={{ marginTop: "70px" }}>
-          <h2>{t('gallery')}</h2>
+          <h2>{t("gallery")}</h2>
           <div className="cards">
-            <div className="card">
-              <img src="/assets/about-header.jpg" alt="about" />
-            </div>
-            <div className="card">
-              <img src="/assets/about-header.jpg" alt="about" />
-            </div>
-            <div className="card">
-              <img src="/assets/about-header.jpg" alt="about" />
-            </div>
-            <div className="card">
-              <img src="/assets/about-header.jpg" alt="about" />
-            </div>
+            {data?.fotogalereya?.map((item, index) => {
+              return (
+                <div className="card" key={item?.id + Math.random() || index}>
+                  <img src={item?.img_url} alt="not found" />
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>
     </section>
   );
+};
+
+CentersAndDepartments.propTypes = {
+  setLoading: PropTypes.func,
+  loading: PropTypes.bool,
 };

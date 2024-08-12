@@ -2,9 +2,24 @@ import { useTranslation } from "react-i18next";
 import styles from "./footer.module.css";
 import { footerData } from "../../exports/navbar";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export const Footer = () => {
   const { t } = useTranslation();
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        axios
+          .get("/qoshimcha-malumotlar/aloqa/")
+          .then((req) => setData(req.data.results));
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <footer className={styles.footer}>
       <div className={`${styles.container}+" container"`}>
@@ -15,7 +30,11 @@ export const Footer = () => {
               {t("footer_title_p")}
             </p>
             <Link to={"/"}>
-              <img src="./assets/logo-light.png" alt="logo light" className={styles.logo}/>
+              <img
+                src="/assets/logo-light.png"
+                alt="logo light"
+                className={styles.logo}
+              />
             </Link>
           </div>
           <div className={styles.row2}>
@@ -53,22 +72,22 @@ export const Footer = () => {
                 <h2>{t("subscribe")}</h2>
                 <ul>
                   <li>
-                    <a href="https://t.me/joinchat/_trsjRtlnjEzYWNi">
+                    <a href={data?.[0]?.telegram} target="_blank">
                       Telegram
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.facebook.com/tarixinstituti.fanlarakademiyasi">
+                    <a href={data?.[0]?.facebook} target="_blank">
                       Facebook
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.facebook.com/tarixinstituti.fanlarakademiyasi">
+                    <a href={data?.[0]?.instagram} target="_blank">
                       Instagram
                     </a>
                   </li>
                   <li>
-                    <a href="https://www.facebook.com/tarixinstituti.fanlarakademiyasi">
+                    <a href={data?.[0]?.youtube} target="_blank">
                       Youtube
                     </a>
                   </li>

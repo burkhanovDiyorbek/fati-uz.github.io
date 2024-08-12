@@ -1,11 +1,42 @@
 import { FaRegNewspaper } from "react-icons/fa6";
 import styles from "./newsabout.module.css";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import { month } from "../News/News";
+import PropTypes from "prop-types";
 
-export const NewsAbout = () => {
-  const { t } = useTranslation();
+export const NewsAbout = ({ setLoading, loading }) => {
+  const { t, i18n } = useTranslation();
+  const [data, setData] = useState({});
+  const [newsData, setNewsData] = useState([]);
+  const { id } = useParams();
+  const lang = i18n.language;
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        await axios
+          .get("/qoshimcha-malumotlar/yangiliklar/" + id)
+          .then((req) => setData(req.data));
+        await axios
+          .get("/qoshimcha-malumotlar/yangiliklar/")
+          .then((req) => setNewsData(req.data.results));
+        setLoading(false);
+      } catch (error) {
+        setLoading("show-p");
+      }
+    };
+    fetchData();
+  }, [id]);
+  if (loading === "show-p") {
+    return <p className="show-p-error">{t("show-p-error")}</p>;
+  }
+  if (loading === true) {
+    return <div className="loader"></div>;
+  }
   return (
     <section className={styles.section}>
       <div className={styles.card}>
@@ -16,106 +47,58 @@ export const NewsAbout = () => {
               <p>{t("news")}</p>
             </div>
           </div>
-          <h2>Funding announced for Official Development Assistance</h2>
-          <span>5 JUL 2024</span>
+          <h2>{data?.[`title_${lang}`]}</h2>
+          <span>
+            {data?.created_at?.slice(8, 10) +
+              " " +
+              month[data?.created_at?.slice(5, 7) + "_" + lang] +
+              " " +
+              data?.created_at?.slice(0, 4)}
+          </span>
           <div className={styles.img}>
-            <img src="/assets/about-header.jpg" alt="im g" />
+            <img src={data?.file} alt="im g" />
           </div>
-          <ul>
-            <li>
-              <span>
-                The British Academy is pleased to announce the successful
-                investigators of the ODA Challenge-Oriented Research Grants
-                programme 2024.
-              </span>
-              <span>
-                The programme supports researchers in the humanities and social
-                sciences based in the UK and Brazil, Egypt, Indonesia, Jordan,
-                Kenya, Malaysia, Philippines, South Africa, Turkey, Thailand,
-                Vietnam and/or Least Developed Countries to develop and/or
-                deepen international research collaborations on internationally
-                focused ODA-eligible research projects on specific global
-                challenges.
-              </span>
-            </li>
-            <li>
-              <h3>
-                The 2024 ODA Challenge-Oriented Research Grants awardees are:
-              </h3>
-              <span>
-                Please note: Awards are arranged alphabetically by surname of
-                the grant recipient under each theme heading. The institution is
-                that given at the time of application.
-              </span>
-            </li>
-            <li>
-              <h4>Antimicrobial Resistance</h4>
-              <span>
-                Research Team: Professor Alexandra Hughes, Newcastle University;
-                Professor Alister Munthali, University of Malawi; Profesor Emma
-                Roe, University of Southampton
-              </span>
-            </li>
-            <li>
-              <span>
-                Research Team: Dr Helen Lambert, University of Bristol; Dr
-                Mariam Taher Amin, Assiut University; Dr Nour Alhusein,
-                University of Bristol; Dr Amira Fathy El-Gazzer, Badr University
-              </span>
-              <span>
-                Exploring Social and Cultural Determinants of Antibiotic Use in
-                Semi-Urban Egypt
-              </span>
-            </li>
-          </ul>
+          <ul dangerouslySetInnerHTML={{ __html: data?.[`content_${lang}`] }} />
         </div>
       </div>
       <div className="container">
         <div className="img-cards">
           <h2>Latest News</h2>
           <div className="cards">
-            <Link to={"/news/1"} className="card">
-              <img src="/assets/book-img.jpg" alt="book" />
-              <h3>Investing in a 21st Century Educational Research System</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Facilis, voluptatum.
-              </p>
-              <img
-                src="/assets/icons/arrow.svg "
-                alt="arrow img"
-                className="arrow"
-              />
-            </Link>
-            <Link to={"/news/1"} className="card">
-              <img src="/assets/book-img.jpg" alt="book" />
-              <h3>Investing in a 21st Century Educational Research System</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Facilis, voluptatum.
-              </p>
-              <img
-                src="/assets/icons/arrow.svg "
-                alt="arrow img"
-                className="arrow"
-              />
-            </Link>
-            <Link to={"/news/1"} className="card">
-              <img src="/assets/book-img.jpg" alt="book" />
-              <h3>Investing in a 21st Century Educational Research System</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Facilis, voluptatum.
-              </p>
-              <img
-                src="/assets/icons/arrow.svg "
-                alt="arrow img"
-                className="arrow"
-              />
-            </Link>
+            {newsData?.reverse()?.map((item, index) => {
+              if (index < 3 && item?.id != id) {
+                return (
+                  <Link
+                    to={"/news/" + item?.id}
+                    className="card"
+                    key={item?.id}
+                  >
+                    <img src={item?.file} alt="book" />
+                    <h3>{item?.[`title_${lang}`]}</h3>
+                    <br />
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html:
+                          item?.[`content_${lang}`]?.slice(0, 250) + "...",
+                      }}
+                    />
+                    <img
+                      src="/assets/icons/arrow.svg "
+                      alt="arrow img"
+                      className="arrow"
+                    />
+                  </Link>
+                );
+              }
+            })}
           </div>
         </div>
       </div>
     </section>
   );
+};
+
+NewsAbout.propTypes = {
+  setLoading: PropTypes.func,
+  loading: PropTypes.bool,
 };

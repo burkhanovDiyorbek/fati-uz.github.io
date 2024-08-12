@@ -2,13 +2,37 @@ import { BiDownArrow, BiUpArrow } from "react-icons/bi";
 import PageTop from "../components/PageTop/PageTop";
 import { FaSearch } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
-
-export const EBooks = () => {
-  const { t } = useTranslation();
+import { useEffect, useState } from "react";
+import axios from "axios";
+import PropTypes from "prop-types";
+export const EBooks = ({ setLoading, loading }) => {
+  const { t, i18n } = useTranslation();
   const [search, setSearch] = useState("");
   const [paginate, setPaginate] = useState(6);
-  console.log(search);
+
+  const [data, setData] = useState([]);
+  const lang = i18n.language;
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        await axios
+          .get("/kutobxona/elektronKitob/")
+          .then((req) => setData(req.data.results));
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+        setLoading("show-p");
+      }
+    };
+    fetchData();
+  }, []);
+  if (loading === "show-p") {
+    return <p className="show-p-error">{t("show-p-error")}</p>;
+  }
+  if (loading === true) {
+    return <div className="loader"></div>;
+  }
   return (
     <section>
       <PageTop data={{ h2: "e-books" }} />
@@ -29,20 +53,20 @@ export const EBooks = () => {
         <div className="container">
           <div className="img-cards">
             <div className="cards">
-              {Array(paginate)
-                .fill(0)
-                .map((_, index) => {
+              {data
+                ?.filter((item) =>
+                  item?.[`title_${lang}`]
+                    ?.toLowerCase()
+                    ?.includes(search?.toLowerCase())
+                )
+                ?.map((item) => {
                   return (
-                    <div className="card" key={index}>
-                      <img src="./assets/book-img.jpg" alt="book img" />
-                      <h3>
-                        Investing in a 21st Century Educational Research System
-                      </h3>
-                      <img
-                        src="./assets/icons/arrow.svg "
-                        alt="arrow img"
-                        className="arrow"
-                      />
+                    <div className="card" key={item?.id}>
+                      <img src={item?.cover_img} alt="book img" />
+                      <h3>{item?.[`title_${lang}`]}</h3>
+                      <a href={item?.file} target="_blank" className="arrow">
+                        <img src="./assets/icons/arrow.svg " alt="arrow img" />
+                      </a>
                     </div>
                   );
                 })}
@@ -52,9 +76,13 @@ export const EBooks = () => {
                     Kamroq <BiUpArrow />
                   </button>
                 )}
-                <button onClick={() => setPaginate((prev) => prev + 3)}>
-                  Yana <BiDownArrow />
-                </button>
+                {data?.length > 6 ? (
+                  <button onClick={() => setPaginate((prev) => prev + 3)}>
+                    Yana <BiDownArrow />
+                  </button>
+                ) : (
+                  ""
+                )}
               </div>
             </div>
           </div>
@@ -62,4 +90,9 @@ export const EBooks = () => {
       </div>
     </section>
   );
+};
+
+EBooks.propTypes = {
+  setLoading: PropTypes.func,
+  loading: PropTypes.bool,
 };

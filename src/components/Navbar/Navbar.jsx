@@ -15,10 +15,12 @@ export const Navbar = () => {
   const [langVal, setLangValue] = useState("uz");
   const [showLang, setShowLang] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
+
   useEffect(() => {
     i18n.changeLanguage(langVal);
     localStorage.setItem("i18lng", langVal);
   }, [langVal]);
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.top_alert}>
@@ -53,9 +55,7 @@ export const Navbar = () => {
                   className={styles.change}
                 >
                   <img
-                    src={`/assets/${
-                      langVal != "en" ? "english" : "uzbek"
-                    }.png`}
+                    src={`/assets/${langVal != "en" ? "english" : "uzbek"}.png`}
                     alt="flag"
                   />
                   <p> {langVal != "en" ? "English" : "O'zbekcha"}</p>

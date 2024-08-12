@@ -1,11 +1,41 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PageTop from "../components/PageTop/PageTop";
 import { archive } from "../exports/archive";
 import { useTranslation } from "react-i18next";
+import axios from "axios";
+import PropTypes from "prop-types";
 
-export const Journal = () => {
+export const Journal = ({ setLoading, loading }) => {
   const [archiveYearVal, setArchiveYear] = useState("2000-2005");
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language;
+  const [tahrirchilarData, setTahrirchilarData] = useState([]);
+  const [archiveData, setArchiveData] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        await axios
+          .get("/kutobxona/tahrirchilar/")
+          .then((req) => setTahrirchilarData(req.data.results));
+        await axios
+          .get("/kutobxona/arxiv_sonlar/")
+          .then((req) => setArchiveData(req.data.results));
+        setLoading(false);
+      } catch (error) {
+        setLoading("show-p");
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
+  console.log(archiveData);
+  if (loading === "show-p") {
+    return <p className="show-p-error">{t("show-p-error")}</p>;
+  }
+  if (loading === true) {
+    return <div className="loader"></div>;
+  }
   return (
     <section>
       <PageTop data={{ h2: "journal" }} />
@@ -20,51 +50,15 @@ export const Journal = () => {
           </div>
           <div className="row2">
             <ul>
-              <li>
-                <span>Tarix instituti</span>
-                <h4>Azamat Ziyo (Bosh muharrir) </h4>
-                <p>Tarix fanlari doktori, professor</p>
-              </li>
-              <li>
-                <span>Tarix instituti</span>
-                <h4>Azamat Ziyo (Bosh muharrir) </h4>
-                <p>Tarix fanlari doktori, professor</p>
-              </li>
-              <li>
-                <span>Tarix instituti</span>
-                <h4>Azamat Ziyo (Bosh muharrir) </h4>
-                <p>Tarix fanlari doktori, professor</p>
-              </li>
-              <li>
-                <span>Tarix instituti</span>
-                <h4>Azamat Ziyo (Bosh muharrir) </h4>
-                <p>Tarix fanlari doktori, professor</p>
-              </li>
-              <li>
-                <span>Tarix instituti</span>
-                <h4>Azamat Ziyo (Bosh muharrir) </h4>
-                <p>Tarix fanlari doktori, professor</p>
-              </li>
-              <li>
-                <span>Tarix instituti</span>
-                <h4>Azamat Ziyo (Bosh muharrir) </h4>
-                <p>Tarix fanlari doktori, professor</p>
-              </li>
-              <li>
-                <span>Tarix instituti</span>
-                <h4>Azamat Ziyo (Bosh muharrir) </h4>
-                <p>Tarix fanlari doktori, professor</p>
-              </li>
-              <li>
-                <span>Tarix instituti</span>
-                <h4>Azamat Ziyo (Bosh muharrir) </h4>
-                <p>Tarix fanlari doktori, professor</p>
-              </li>
-              <li>
-                <span>Tarix instituti</span>
-                <h4>Azamat Ziyo (Bosh muharrir) </h4>
-                <p>Tarix fanlari doktori, professor</p>
-              </li>
+              {tahrirchilarData?.map((item) => {
+                return (
+                  <li key={item?.id}>
+                    <span>{item?.[`ish_joyi`]}</span>
+                    <h4>{item?.[`title_${lang}`]}</h4>
+                    <p>{item?.lavozimi}</p>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>
@@ -117,13 +111,13 @@ export const Journal = () => {
       </div>
       <div className="container">
         <h2 style={{ marginBottom: "20px" }}>
-          <q>{t("journal")}</q> {t('archives')}
+          <q>{t("journal")}</q> {t("archives")}
         </h2>
       </div>
       <div className="container" style={{ flexDirection: "column" }}>
         <div className="archive">
           <div className="left">
-            <h2>{t('archive')}</h2>
+            <h2>{t("archive")}</h2>
             <ul>
               {archive.map((item) => {
                 const { id, value } = item;
@@ -152,4 +146,9 @@ export const Journal = () => {
       </div>
     </section>
   );
+};
+
+Journal.propTypes = {
+  setLoading: PropTypes.func,
+  loading: PropTypes.bool,
 };

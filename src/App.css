@@ -353,6 +353,13 @@ body {
     .picture {
       padding: 6px;
       border: 1px solid #e0e0e0;
+      width: 124px;
+      height: 174px;
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        height: 100%;
+      }
     }
   }
   .arrow {
@@ -521,6 +528,45 @@ body {
   background: rgb(8, 90, 8);
   margin: 40px 0;
 }
+.cards {
+  width: 97vw;
+  .arrow {
+    max-width: 20px;
+    height: 20px;
+    img {
+      height: 100% !important;
+      width: 100%;
+    }
+  }
+}
+.row2 {
+  h3,
+  p {
+    max-width: 700px;
+  }
+}
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 8px solid;
+  border-color: #000 #0000;
+  animation: l1 1s infinite;
+  margin: 150px auto;
+}
+@keyframes l1 {
+  to {
+    transform: rotate(0.5turn);
+  }
+}
+
+.column {
+  .row2 {
+    .cards {
+      width: 100% !important;
+    }
+  }
+}
 
 .quick-links {
   h2 {
@@ -543,8 +589,8 @@ body {
       text-align: center;
       border-right: 1px solid #e0e0e0;
       transition: all 0.3s ease;
-      max-width: 200px;
-      padding: 15px;
+      max-width: 300px;
+      padding: 5px;
       width: 100%;
       p {
         font-size: 14px;
@@ -652,13 +698,20 @@ body {
   display: none;
 }
 
+.show-p-error {
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .councils {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 15px;
   li {
-    max-width: 630px;
+    max-width: 600px;
     padding: 15px 20px;
     display: flex;
     flex-direction: column;
@@ -769,10 +822,10 @@ h2 {
       padding-bottom: 15px;
     }
   }
-  .requirements{
+  .requirements {
     gap: 10px;
-    p{
-      opacity: .8;
+    p {
+      opacity: 0.8;
       font-weight: 600;
       line-height: 1.4;
       letter-spacing: normal;
@@ -793,8 +846,8 @@ h2 {
         p {
           opacity: 0.5;
         }
-        span{
-          opacity: .7;
+        span {
+          opacity: 0.7;
         }
       }
     }
@@ -916,6 +969,14 @@ h2 {
       display: flex;
       max-width: 70%;
     }
+    .card-img {
+      width: 124px;
+      height: 176px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
     ul {
       li {
         padding: 15px 20px;
@@ -943,7 +1004,7 @@ h2 {
           visibility: visible;
           opacity: 1;
           height: auto;
-          li {
+          p {
             opacity: 1;
           }
         }
@@ -956,21 +1017,18 @@ h2 {
         max-width: 95%;
         width: 100%;
         margin: 0 auto;
-        li {
+        p {
           list-style: disc;
           padding: 0;
           font-size: 14px;
           border: none;
           opacity: 0;
         }
-        li::marker {
-          color: green;
-        }
       }
-    }
-    h2 {
-      font-family: "Poppins";
-      margin-bottom: 20px;
+      h2 {
+        font-family: "Poppins";
+        margin-bottom: 20px;
+      }
     }
   }
 }

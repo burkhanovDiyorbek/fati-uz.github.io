@@ -41,7 +41,7 @@
     gap: 20px;
     position: absolute;
     backdrop-filter: blur(100px);
-    background: #01012f99;
+    background: #01012c99;
     top: 150px;
     width: 100vw;
     left: 0;
@@ -77,7 +77,7 @@
         opacity: 0;
         visibility: hidden;
         position: absolute;
-        top: 40px;
+        top: 45px;
         transition: opacity 0.15s ease;
         background: #000000;
         backdrop-filter: blur(100px);
@@ -217,13 +217,13 @@
   .clc {
     margin-bottom: 5px;
   }
-  .menu-mob{
+  .menu-mob {
     padding: 5px;
     justify-content: end;
-    .mob-icon{
+    .mob-icon {
       padding: 2px;
     }
-    svg{
+    svg {
       width: 20px;
       height: 20px;
     }

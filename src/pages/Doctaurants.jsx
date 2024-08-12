@@ -1,133 +1,116 @@
+import { useEffect, useState } from "react";
 import PageTop from "../components/PageTop/PageTop";
 import { GrDown } from "react-icons/gr";
+import axios from "axios";
+import { useTranslation } from "react-i18next";
+import PropTypes from "prop-types";
 
-export const Doctaurants = () => {
+export const Doctaurants = ({ setLoading, loading }) => {
+  const [data, setData] = useState([]);
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language;
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        await axios
+          .get("/doktarantura/doktarantura/")
+          .then((req) => setData(req.data.results));
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+        setLoading("show-p");
+      }
+    };
+    fetchData();
+  }, []);
+  if (loading === "show-p") {
+    return <p className="show-p-error">{t("show-p-error")}</p>;
+  }
+  if (loading === true) {
+    return <div className="loader"></div>;
+  }
+  console.log(data);
   return (
-    <styles>
+    <section>
       <PageTop data={{ h2: "doctaurants" }} />
       <div className="container">
         <div className="doctaurants">
-          {Array(8)
-            .fill(0)
-            .map((_, index) => {
-              return (
-                <div className="card" key={index}>
-                  <div className="card-img">
-                    <img src="./assets/user.jpg" alt="user" />
-                  </div>
-                  <div className="content">
-                    <h2>GULIRA’NO ALIJON QIZI ABDUG’ANIYEVA</h2>
-                    <ul>
-                      <li>
-                        <input type="checkbox" name="doc" id={`e1${index}`} />
-                        <label htmlFor={`e1${index}`}>
-                          <span>Mehnat faoliyati</span>
-                          <GrDown />
-                        </label>
-                        <ol>
-                          <li>
-                            1994-yil Namangan viloyati Pop tumanida tug’ilgan.
-                          </li>
-                          <li>
-                            2013-yil O‘zbekiston Milliy Universiteti (bakalavr)
-                            ni tamomlagan.
-                          </li>
-                          <li>
-                            2019-yil O‘zbekiston Milliy Universiteti (magistr)ni
-                            tamomlagan.
-                          </li>
-                          <li> 2023-yildan tayanch doktorant.</li>
-                        </ol>
-                      </li>
-                      <li>
-                        <input type="checkbox" name="doc" id={`e2${index}`} />
-                        <label htmlFor={`e2${index}`}>
-                          <span>Ilmiy faoliyat</span>
-                          <GrDown />
-                        </label>
-                        <ol>
-                          <li>
-                            <b>Dissertatsiya mavzusi: </b>“O‘zbekiston SSRdagi
-                            ijtimoiy-iqtisodiy jarayonlar va aholi (1925 -
-                            1940-yillar)” (Ilmiy rahbar: tarix fanlari doktori,
-                            dotsent Muxayyo Srajiddinovna Isakova).
-                          </li>
-                          <li>
-                            1925 - 1940-yillarda O‘zbekistondagi tarixiy
-                            jarayonlar, ijtimoiy-iqtisodiy o‘zgarishlar aholi
-                            soni, yoshi, jinsi, millati umuman aholi
-                            o‘zgarishlariga ta’siri arxiv hujjatlari asosida
-                            o‘rganiladi.
-                          </li>
-                        </ol>
-                      </li>
-                      <li>
-                        <input type="checkbox" name="doc" id={`e3${index}`} />
-                        <label htmlFor={`e3${index}`}>
-                          <span>Asarlari</span>
-                          <GrDown />
-                        </label>
-                        <ol>
-                          <li>
-                            Ayolga e’tibor – kelajakka e’tibor. Ta’lim va
-                            tarbiya jarayonida modernizatsiya, QDPU, To‘plam,
-                            2018 y.
-                          </li>
-                          <li>
-                            Tadbirkor ayol – yurtga madadkor. O‘zbekiston
-                            tarixining dolzarb masalalari yosh tadqiqotchilar
-                            nigohida. O‘zMu Tarix fakulteti. To‘plam. 2018 y.,
-                            5-8 - betlar
-                          </li>
-                          <li>
-                            Attention to Women is Attention to the future.
-                            American journal of social and humanitarian
-                            research, 2022 y., №3, 31-33 - pages
-                          </li>
-                          <li>
-                            Attention to Women is Attention to the future.
-                            American journal of social and humanitarian
-                            research, 2022 y., №3, 31-33 - pages
-                          </li>
-                          <li>
-                            Attention to Women is Attention to the future.
-                            American journal of social and humanitarian
-                            research, 2022 y., №3, 31-33 - pages
-                          </li>
-                          <li>
-                            Attention to Women is Attention to the future.
-                            American journal of social and humanitarian
-                            research, 2022 y., №3, 31-33 - pages
-                          </li>
-                          <li>
-                            Attention to Women is Attention to the future.
-                            American journal of social and humanitarian
-                            research, 2022 y., №3, 31-33 - pages
-                          </li>
-                          <li>
-                            Attention to Women is Attention to the future.
-                            American journal of social and humanitarian
-                            research, 2022 y., №3, 31-33 - pages
-                          </li>
-                          <li>
-                            Attention to Women is Attention to the future.
-                            American journal of social and humanitarian
-                            research, 2022 y., №3, 31-33 - pages
-                          </li>
-                          <li>
-                            Attention to Women is Attention to the future.
-                            American journal of social and humanitarian
-                            research, 2022 y., №3, 31-33 - pages
-                          </li>
-                        </ol>
-                      </li>
-                    </ul>
-                  </div>
+          {data.map((item, index) => {
+            return (
+              <div className="card" key={index}>
+                <div className="card-img">
+                  <img src={item?.file} alt="user" />
                 </div>
-              );
-            })}
+                <div className="content">
+                  <h2>{item?.[`title_${lang}`]}</h2>
+                  <ul>
+                    <li>
+                      <input type="checkbox" name="doc" id={`e1${index}`} />
+                      <label htmlFor={`e1${index}`}>
+                        <span>Mehnat faoliyati</span>
+                        <GrDown />
+                      </label>
+                      {item?.[`mehnat_faolyati_${lang}`] ? (
+                        <ol
+                          dangerouslySetInnerHTML={{
+                            __html: item?.[`mehnat_faolyati_${lang}`],
+                          }}
+                        />
+                      ) : (
+                        <ol>
+                          <p>Nothing to see...</p>
+                        </ol>
+                      )}
+                    </li>
+                    <li>
+                      <input type="checkbox" name="doc" id={`e2${index}`} />
+                      <label htmlFor={`e2${index}`}>
+                        <span>Ilmiy faoliyat</span>
+                        <GrDown />
+                      </label>
+                      {item?.[`ilimiy_faolyati_${lang}`] ? (
+                        <ol
+                          dangerouslySetInnerHTML={{
+                            __html: item?.[`ilimiy_faolyati_${lang}`],
+                          }}
+                        />
+                      ) : (
+                        <ol>
+                          <p>Nothing to see...</p>
+                        </ol>
+                      )}
+                    </li>
+                    <li>
+                      <input type="checkbox" name="doc" id={`e3${index}`} />
+                      <label htmlFor={`e3${index}`}>
+                        <span>Asarlari</span>
+                        <GrDown />
+                      </label>
+                      {item?.[`asarlar_${lang}`] ? (
+                        <ol
+                          dangerouslySetInnerHTML={{
+                            __html: item?.[`asarlar_${lang}`],
+                          }}
+                        />
+                      ) : (
+                        <ol>
+                          <p>Nothing to see...</p>
+                        </ol>
+                      )}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
-    </styles>
+    </section>
   );
+};
+Doctaurants.propTypes = {
+  setLoading: PropTypes.func,
+  loading: PropTypes.bool,
 };

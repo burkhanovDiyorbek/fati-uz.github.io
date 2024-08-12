@@ -1,10 +1,33 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PageTop from "../components/PageTop/PageTop";
 import { useTranslation } from "react-i18next";
+import PropTypes from "prop-types";
+import axios from "axios";
 
-export const GlobalResearchers = () => {
+export const GlobalResearchers = ({ setLoading, loading }) => {
   const [year, setYear] = useState(2016);
   const { t } = useTranslation();
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        await axios
+          .get("/xalqaro-aloqalar/xalqaro-tadqiqot/")
+          .then((req) => setData(req.data.results));
+        setLoading(false);
+      } catch (error) {
+        setLoading("show-p");
+      }
+    };
+    fetchData();
+  }, []);
+  if (loading === "show-p") {
+    return <p className="show-p-error">{t("show-p-error")}</p>;
+  }
+  if (loading === true) {
+    return <div className="loader"></div>;
+  }
   return (
     <section>
       <PageTop data={{ h2: "global-researchers" }} />
@@ -72,4 +95,9 @@ export const GlobalResearchers = () => {
       </div>
     </section>
   );
+};
+
+GlobalResearchers.propTypes = {
+  setLoading: PropTypes.func,
+  loading: PropTypes.bool,
 };

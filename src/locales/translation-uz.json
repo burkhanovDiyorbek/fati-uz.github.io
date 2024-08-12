@@ -63,8 +63,17 @@
   "authors": "Tahrirchilar",
   "archive": "Arxiv",
   "archives": "arxiv sonlari",
-  "sort-by":"Saralash:",
-  "published":"Nashr sanasi",
-  "newest":"yangi",
-  "oldest":"eski"
+  "sort-by": "Saralash:",
+  "published": "Nashr sanasi",
+  "newest": "yangi",
+  "oldest": "eski",
+  "rectors": "Institut direktorlari:",
+  "workplace": "Ish joyi",
+  "position": "Lavozim",
+  "academic_degree": "Ilmiy darajasi",
+  "academic_title": "Ilmiy unvoni",
+  "journal_context": "   O‘zbek xalqi va davlatchiligi tarixining har qanday masalalasi va  bosqichiga bag‘ishlangan, ilmiy yangilik bo‘lgan, foydalanilgan  birlamchi manbalari va ilmiy adabiyotlari aniq ko‘rsatilgan, bosh  g‘oyasi (mazmuni) ilgari e’lon qilinmagan ishlar (maqolalar,  axborotlar, kirish so‘zi bilan hujjatlar) qabul qilinadi.",
+  "home_about_p": " Institut olimlari Vatanimiz tarixining yoritilmagan sahifalari, o'zbek xalqi etnogenezi va etnik tarixi, O'zbekistonning boy moddiy hamda ma'naviy madaniyati tarixini o'rganish bilan shug'ullangan.   Institut tashkil etilgandan buyon Rossiya va Markaziy Osiyo respublikalarining yirik ilmiy markazlari bilan o'zaro hamkorlikda ilmiy-metodik anjumanlar, davra suhbatlari, seminarlar hamda simpoziumlar faoliyati 'Tarix fanining dolzarb muammolari' mavzusidagi maqolalar to'plamlari tarzida chop etilgan.   Tarix institutining ilmiy va tashkiliy faoliyatida tub o'zgarishlar O'zbekiston mustaqillikka erishganidan so'ng sodir bo'ldi. Sovet davrida tarix fani sof g'oyaviy va siyosiy xususiyatga ega bo'lib, kommunistik mafkurani targ'ib qilish uchun xizmat qildi. Mustaqillikning dastlabki yillaridan boshlab institut xodimlari sovet davri tarixining soxtalashtirilgan yoki unutilgan sahifalarini o'rganishga jiddiy e'tibor berdilar. O'zbekiston tarixidagi ko'plab muammolar yangi nuqtai nazardan xolisona baholandi. O'zbekiston Respublikasi Vazirlar Mahkamasining 1998-yil 27-iyuldagi 'O'zbekiston Respublikasi Fanlar akademiyasi Tarix instituti faoliyatini takomillashtirish to'g'risida' gi Qarori tarixiy vazifalarni strategik o'zgartirish uchun asos bo'ldi.",
+  "home_about_h3": "Tarix instituti 1943-yili (1970-yilgacha - O'zSSR FA Tarix va arxeologiya instituti) SSSR Fanlar akademiyasi O'zbekiston filiali Til, Adabiyot va Tarix instituti nomi bilan tashkil etilgan.",
+  "show-p-error": "Oops, nimadur xato ketdi. Iltimos sahifani qayta yuklang."
 }

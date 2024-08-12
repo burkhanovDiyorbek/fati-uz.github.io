@@ -10,7 +10,7 @@ import { About } from "./pages/About/About";
 import { CentersAndDepartments } from "./pages/CentersAndDepartments/CentersAndDepartments";
 import { News } from "./pages/News/News";
 import { NewsAbout } from "./pages/NewsAbout/NewsAbout";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { SearchResult } from "./pages/SearchResult/SearchResult";
 import { NotFound } from "./pages/NotFound/NotFound";
 import { Contact } from "./pages/Contact/Contact";
@@ -30,6 +30,7 @@ import { GlobalResearchers } from "./pages/GlobalResearchers";
 import { GlobalProjects } from "./pages/GlobalProjects";
 import { Seminar } from "./pages/Seminar/Seminar";
 import { ScCouncil } from "./pages/ScCouncil";
+import axios from "axios";
 
 i18n.use(initReactI18next).init({
   resources: {
@@ -40,9 +41,11 @@ i18n.use(initReactI18next).init({
   fallbackLng: localStorage.getItem("i18lng") || "uz",
 });
 
+axios.defaults.baseURL = "http://subdomain.uzfati.uz";
+
 const App = () => {
   const { pathname } = useLocation();
-
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
     document.body.classList.add("true");
     setTimeout(() => {
@@ -55,40 +58,111 @@ const App = () => {
       localStorage.getItem("i18lng") == "uz"
         ? "O'zbekiston fanlar akademiyasi Tarix instituti"
         : "Institute of History of the Academy of Sciences of Uzbekistan";
-  }, [localStorage.getItem("i18lng")]);
+  }, []);
 
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="about" element={<About />} />
+      <Route path="/" element={<Layout loading={loading} />}>
+        <Route
+          index
+          element={<Home setLoading={setLoading} loading={loading} />}
+        />
+        <Route
+          path="about"
+          element={<About setLoading={setLoading} loading={loading} />}
+        />
         <Route
           path="centers-and-departments"
-          element={<CentersAndDepartments />}
+          element={
+            <CentersAndDepartments setLoading={setLoading} loading={loading} />
+          }
         />
-        <Route path="news" element={<News />}></Route>
-        <Route path="news/:id" element={<NewsAbout />} />
-        <Route path="search/:value" element={<SearchResult />} />
-        <Route path="seminar" element={<Seminar />} />
-        <Route path="contact" element={<Contact />} />
-        <Route path="trade-union" element={<TradeUnion />} />
+        <Route
+          path="news"
+          element={<News setLoading={setLoading} loading={loading} />}
+        ></Route>
+        <Route
+          path="news/:id"
+          element={<NewsAbout setLoading={setLoading} loading={loading} />}
+        />
+        <Route
+          path="search/:value"
+          element={<SearchResult setLoading={setLoading} loading={loading} />}
+        />
+        <Route
+          path="seminar"
+          element={<Seminar setLoading={setLoading} loading={loading} />}
+        />
+        <Route
+          path="contact"
+          element={<Contact setLoading={setLoading} loading={loading} />}
+        />
+        <Route
+          path="trade-union"
+          element={<TradeUnion setLoading={setLoading} loading={loading} />}
+        />
         <Route
           path="organization-structure"
-          element={<OrganizationStructure />}
+          element={
+            <OrganizationStructure setLoading={setLoading} loading={loading} />
+          }
         />
-        <Route path="doc-admission" element={<DocAdmission />} />
-        <Route path="doctaurants" element={<Doctaurants />} />
-        <Route path="doc-exams" element={<DocExams />} />
-        <Route path="scientific-degree" element={<ScientificDegree />} />
-        <Route path="sc-young" element={<ScYoung />} />
-        <Route path="sc-council" element={<ScCouncil />} />
-        <Route path="journal" element={<Journal />} />
-        <Route path="e-books" element={<EBooks />} />
-        <Route path="sources" element={<Sources />} />
-        <Route path="abstracts" element={<Abstracts />} />
-        <Route path="global-partners" element={<GlobalPartners />} />
-        <Route path="global-researchers" element={<GlobalResearchers />} />
-        <Route path="global-projects" element={<GlobalProjects />} />
+        <Route
+          path="doc-admission"
+          element={<DocAdmission setLoading={setLoading} loading={loading} />}
+        />
+        <Route
+          path="doctaurants"
+          element={<Doctaurants setLoading={setLoading} loading={loading} />}
+        />
+        <Route
+          path="doc-exams"
+          element={<DocExams setLoading={setLoading} loading={loading} />}
+        />
+        <Route
+          path="scientific-degree"
+          element={
+            <ScientificDegree setLoading={setLoading} loading={loading} />
+          }
+        />
+        <Route
+          path="sc-young"
+          element={<ScYoung setLoading={setLoading} loading={loading} />}
+        />
+        <Route
+          path="sc-council"
+          element={<ScCouncil setLoading={setLoading} loading={loading} />}
+        />
+        <Route
+          path="journal"
+          element={<Journal setLoading={setLoading} loading={loading} />}
+        />
+        <Route
+          path="e-books"
+          element={<EBooks setLoading={setLoading} loading={loading} />}
+        />
+        <Route
+          path="sources"
+          element={<Sources setLoading={setLoading} loading={loading} />}
+        />
+        <Route
+          path="abstracts"
+          element={<Abstracts setLoading={setLoading} loading={loading} />}
+        />
+        <Route
+          path="global-partners"
+          element={<GlobalPartners setLoading={setLoading} loading={loading} />}
+        />
+        <Route
+          path="global-researchers"
+          element={
+            <GlobalResearchers setLoading={setLoading} loading={loading} />
+          }
+        />
+        <Route
+          path="global-projects"
+          element={<GlobalProjects setLoading={setLoading} loading={loading} />}
+        />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>

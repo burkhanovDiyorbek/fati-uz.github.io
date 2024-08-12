@@ -1,14 +1,21 @@
 import { Outlet } from "react-router-dom";
 import { Navbar } from "./Navbar/Navbar";
 import { Footer } from "./Footer/Footer";
+import PropTypes from "prop-types";
 
 export const Layout = () => {
-  console.log(window.location);
   return (
     <>
       {window.location.pathname !== "/" && <Navbar />}
+
       <Outlet />
+
       <Footer />
     </>
   );
+};
+
+Layout.propTypes = {
+  loading: PropTypes.bool,
+  setLoading: PropTypes.func,
 };
