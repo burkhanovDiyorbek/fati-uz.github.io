@@ -157,7 +157,7 @@ export const Home = ({ setLoading, loading }) => {
             {centersData.map((item) => {
               return (
                 <div className="card" key={item?.id}>
-                  <Link to={"/centers-and-departments?id=" + item?.id}>
+                  <Link to={"/centers-and-departments/" + item?.id}>
                     <img src={item?.fotogalereya?.[0]?.img_url} alt="" />
                     <h3>{t("centers" + item?.id)}</h3>
                   </Link>
@@ -373,5 +373,5 @@ export const Home = ({ setLoading, loading }) => {
 
 Home.propTypes = {
   setLoading: PropTypes.func,
-  loading: PropTypes.bool,
+  loading: PropTypes.any,
 };

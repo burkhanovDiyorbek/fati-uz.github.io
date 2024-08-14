@@ -54,5 +54,5 @@ export const DocExams = ({ setLoading, loading }) => {
 
 DocExams.propTypes = {
   setLoading: PropTypes.func,
-  loading: PropTypes.bool,
+  loading: PropTypes.any,
 };

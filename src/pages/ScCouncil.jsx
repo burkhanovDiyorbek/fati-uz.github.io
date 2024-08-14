@@ -13,7 +13,7 @@ export const ScCouncil = ({ setLoading, loading }) => {
       try {
         setLoading(true);
         await axios
-          .get("/kengashlar/ilmiy-kengash-majlis/")
+          .get("/kengashlar/ilmiy_kengash_majlis/")
           .then((req) => setData(req.data.results));
         setLoading(false);
       } catch (error) {
@@ -32,12 +32,30 @@ export const ScCouncil = ({ setLoading, loading }) => {
   return (
     <section>
       <PageTop data={{ h2: "sc-council" }} />
-      {/* {data?.map()} */}
+      {data?.map((item) => {
+        return (
+          <div className="container" key={item?.id}>
+            <div className="section-slice">
+              <div className="row1">
+                <h2>{item?.[`title_${lang}`]}</h2>
+                <img src={item?.file} alt="" />
+              </div>
+              <div className="row2">
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: item?.[`subcontent`],
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+        );
+      })}
     </section>
   );
 };
 
 ScCouncil.propTypes = {
   setLoading: PropTypes.func,
-  loading: PropTypes.bool,
+  loading: PropTypes.any,
 };

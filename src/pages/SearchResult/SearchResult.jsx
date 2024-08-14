@@ -78,5 +78,5 @@ export const SearchResult = ({ setLoading, loading }) => {
 
 SearchResult.propTypes = {
   setLoading: PropTypes.func,
-  loading: PropTypes.bool,
+  loading: PropTypes.any,
 };

@@ -60,5 +60,5 @@ export const ScYoung = ({ setLoading, loading }) => {
 
 ScYoung.propTypes = {
   setLoading: PropTypes.func,
-  loading: PropTypes.bool,
+  loading: PropTypes.any,
 };

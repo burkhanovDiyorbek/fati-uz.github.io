@@ -49,5 +49,5 @@ export const Seminar = ({ setLoading, loading }) => {
 
 Seminar.propTypes = {
   setLoading: PropTypes.func,
-  loading: PropTypes.bool,
+  loading: PropTypes.any,
 };

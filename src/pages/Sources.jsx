@@ -97,5 +97,5 @@ export const Sources = ({ setLoading, loading }) => {
 
 Sources.propTypes = {
   setLoading: PropTypes.func,
-  loading: PropTypes.bool,
+  loading: PropTypes.any,
 };

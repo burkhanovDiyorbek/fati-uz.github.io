@@ -147,5 +147,5 @@ export const News = ({ setLoading, loading }) => {
 
 News.propTypes = {
   setLoading: PropTypes.func,
-  loading: PropTypes.bool,
+  loading: PropTypes.any,
 };

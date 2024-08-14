@@ -64,5 +64,5 @@ export const Contact = ({ setLoading, loading }) => {
 
 Contact.propTypes = {
   setLoading: PropTypes.func,
-  loading: PropTypes.bool,
+  loading: PropTypes.any,
 };

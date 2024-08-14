@@ -31,15 +31,17 @@ export const Doctaurants = ({ setLoading, loading }) => {
   if (loading === true) {
     return <div className="loader"></div>;
   }
-  console.log(data);
+  // console.log(data[0].asarlar_uz);
   return (
     <section>
       <PageTop data={{ h2: "doctaurants" }} />
       <div className="container">
         <div className="doctaurants">
           {data.map((item, index) => {
+            console.log(item?.[`mehnat_faolyati_${lang}`]);
+
             return (
-              <div className="card" key={index}>
+              <div className="card" key={item?.id}>
                 <div className="card-img">
                   <img src={item?.file} alt="user" />
                 </div>
@@ -52,17 +54,11 @@ export const Doctaurants = ({ setLoading, loading }) => {
                         <span>Mehnat faoliyati</span>
                         <GrDown />
                       </label>
-                      {item?.[`mehnat_faolyati_${lang}`] ? (
-                        <ol
-                          dangerouslySetInnerHTML={{
-                            __html: item?.[`mehnat_faolyati_${lang}`],
-                          }}
-                        />
-                      ) : (
-                        <ol>
-                          <p>Nothing to see...</p>
-                        </ol>
-                      )}
+                      <ol
+                        dangerouslySetInnerHTML={{
+                          __html: item?.[`mehnat_faolyati_${lang}`],
+                        }}
+                      />
                     </li>
                     <li>
                       <input type="checkbox" name="doc" id={`e2${index}`} />
@@ -112,5 +108,5 @@ export const Doctaurants = ({ setLoading, loading }) => {
 };
 Doctaurants.propTypes = {
   setLoading: PropTypes.func,
-  loading: PropTypes.bool,
+  loading: PropTypes.any,
 };

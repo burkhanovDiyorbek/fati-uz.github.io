@@ -57,5 +57,5 @@ export const GlobalPartners = ({ setLoading, loading }) => {
 
 GlobalPartners.propTypes = {
   setLoading: PropTypes.func,
-  loading: PropTypes.bool,
+  loading: PropTypes.any,
 };

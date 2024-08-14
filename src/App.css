@@ -1009,7 +1009,7 @@ h2 {
           }
         }
       }
-      ol {
+      label ~ ol {
         visibility: hidden;
         opacity: 0;
         height: 0;

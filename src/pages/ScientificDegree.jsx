@@ -82,5 +82,5 @@ export const ScientificDegree = ({ setLoading, loading }) => {
 
 ScientificDegree.propTypes = {
   setLoading: PropTypes.func,
-  loading: PropTypes.bool,
+  loading: PropTypes.any,
 };

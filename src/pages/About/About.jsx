@@ -75,5 +75,5 @@ export const About = ({ loading, setLoading }) => {
 
 About.propTypes = {
   setLoading: PropTypes.func,
-  loading: PropTypes.bool,
+  loading: PropTypes.any,
 };

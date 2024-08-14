@@ -72,7 +72,7 @@ const App = () => {
           element={<About setLoading={setLoading} loading={loading} />}
         />
         <Route
-          path="centers-and-departments"
+          path="centers-and-departments/:id"
           element={
             <CentersAndDepartments setLoading={setLoading} loading={loading} />
           }

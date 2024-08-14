@@ -34,28 +34,14 @@ export const DocAdmission = ({ setLoading, loading }) => {
   return (
     <section>
       <PageTop data={{ h2: "doc-admission" }} />
-      <div className="aside">
-        <div className="aside-container">
-          <div className="aside-img">
-            <img src="./assets/header.jpg" alt="header jpg" />
-          </div>
-          <div className="aside-content">
-            <h2>Qabul tartibi</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Id
-              deserunt fugit magni quo labore temporibus! Eligendi, temporibus
-              maxime. Eum harum ipsum repellat ullam ratione cumque nostrum
-              dolorum eligendi cupiditate iure.
-            </p>
-          </div>
-        </div>
-      </div>
+
       {data.map((item) => {
         return (
           <div className="container" key={item?.id}>
             <div className="section-slice">
               <div className="row1">
                 <h2>{item?.[`title_${lang}`]}</h2>
+                <img src={item?.file} />
               </div>
               <div className="row2">
                 <ol
@@ -74,5 +60,5 @@ export const DocAdmission = ({ setLoading, loading }) => {
 
 DocAdmission.propTypes = {
   setLoading: PropTypes.func,
-  loading: PropTypes.bool,
+  loading: PropTypes.any,
 };

@@ -94,5 +94,5 @@ export const Abstracts = ({ setLoading, loading }) => {
 
 Abstracts.propTypes = {
   setLoading: PropTypes.func,
-  loading: PropTypes.bool,
+  loading: PropTypes.any,
 };

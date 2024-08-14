@@ -1,6 +1,6 @@
 import styles from "./centers-and-departments.module.css";
 import PageTop from "../../components/PageTop/PageTop";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Slider from "../../components/Slider";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
@@ -8,8 +8,7 @@ import axios from "axios";
 import PropTypes from "prop-types";
 
 export const CentersAndDepartments = ({ setLoading, loading }) => {
-  const { search } = useLocation();
-  let id = search.at(-1);
+  const { id } = useParams();
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
   const [data, setData] = useState([]);
@@ -87,5 +86,5 @@ export const CentersAndDepartments = ({ setLoading, loading }) => {
 
 CentersAndDepartments.propTypes = {
   setLoading: PropTypes.func,
-  loading: PropTypes.bool,
+  loading: PropTypes.any,
 };

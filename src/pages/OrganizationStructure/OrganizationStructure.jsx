@@ -57,5 +57,5 @@ export const OrganizationStructure = ({ setLoading, loading }) => {
 
 OrganizationStructure.propTypes = {
   setLoading: PropTypes.func,
-  loading: PropTypes.bool,
+  loading: PropTypes.any,
 };

@@ -94,5 +94,5 @@ export const EBooks = ({ setLoading, loading }) => {
 
 EBooks.propTypes = {
   setLoading: PropTypes.func,
-  loading: PropTypes.bool,
+  loading: PropTypes.any,
 };

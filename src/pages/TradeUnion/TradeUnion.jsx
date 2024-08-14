@@ -60,5 +60,5 @@ export const TradeUnion = ({ setLoading, loading }) => {
 
 TradeUnion.propTypes = {
   setLoading: PropTypes.func,
-  loading: PropTypes.bool,
+  loading: PropTypes.any,
 };

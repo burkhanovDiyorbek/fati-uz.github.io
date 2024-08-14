@@ -99,5 +99,5 @@ export const GlobalResearchers = ({ setLoading, loading }) => {
 
 GlobalResearchers.propTypes = {
   setLoading: PropTypes.func,
-  loading: PropTypes.bool,
+  loading: PropTypes.any,
 };

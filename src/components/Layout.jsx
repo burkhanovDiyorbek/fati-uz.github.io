@@ -16,6 +16,6 @@ export const Layout = () => {
 };
 
 Layout.propTypes = {
-  loading: PropTypes.bool,
+  loading: PropTypes.any,
   setLoading: PropTypes.func,
 };

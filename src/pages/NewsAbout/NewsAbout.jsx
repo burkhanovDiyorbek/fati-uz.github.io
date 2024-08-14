@@ -100,5 +100,5 @@ export const NewsAbout = ({ setLoading, loading }) => {
 
 NewsAbout.propTypes = {
   setLoading: PropTypes.func,
-  loading: PropTypes.bool,
+  loading: PropTypes.any,
 };
