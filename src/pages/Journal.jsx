@@ -28,7 +28,7 @@ export const Journal = ({ setLoading, loading }) => {
           .then((req) => setArchiveMenuData(req.data.results));
         await axios
           .get("/kutobxona/talablar/")
-          .then((req) => setTalablarData(req.data.json()));
+          .then((req) => setTalablarData(req.data.results));
         setLoading(false);
       } catch (error) {
         setLoading("show-p");

@@ -5,16 +5,25 @@ import PropTypes from "prop-types";
 import axios from "axios";
 
 export const GlobalResearchers = ({ setLoading, loading }) => {
-  const [year, setYear] = useState(2016);
-  const { t } = useTranslation();
+  const [years, setYears] = useState([]);
+  const [year, setYear] = useState("2000");
+  const { t, i18n } = useTranslation();
   const [data, setData] = useState([]);
+  const [kelganlarData, setKelganlarData] = useState([]);
+  const lang = i18n.language;
+  useEffect(() => {
+    setYear(years[0]);
+  }, [years]);
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
         await axios
-          .get("/xalqaro-aloqalar/xalqaro-tadqiqot/")
+          .get("/xalqaro-aloqalar/tadqiqot/")
           .then((req) => setData(req.data.results));
+        await axios
+          .get("/xalqaro-aloqalar/Kelganlar/")
+          .then((req) => setKelganlarData(req.data.results));
         setLoading(false);
       } catch (error) {
         setLoading("show-p");
@@ -22,6 +31,13 @@ export const GlobalResearchers = ({ setLoading, loading }) => {
     };
     fetchData();
   }, []);
+  kelganlarData?.map((item) =>
+    years.includes(item.kelgan_yil)
+      ? ""
+      : setYears((prev) => [...prev, item.kelgan_yil])
+  );
+  console.log(data);
+
   if (loading === "show-p") {
     return <p className="show-p-error">{t("show-p-error")}</p>;
   }
@@ -31,65 +47,53 @@ export const GlobalResearchers = ({ setLoading, loading }) => {
   return (
     <section>
       <PageTop data={{ h2: "global-researchers" }} />
-      <div className="aside green">
-        <div className="aside-container">
-          <div className="aside-img">
-            <img src="./assets/header.jpg" alt="header" />
+      {data.map((item) => {
+        return (
+          <div className="container" key={item?.id}>
+            <div className="section-slice">
+              <div className="row-1">
+                <h2>{item?.[`title_${lang}`]}</h2>
+                <img src={item?.file} alt="" />
+              </div>
+              <div className="row-2">
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: item?.[`content_${lang}`],
+                  }}
+                />
+              </div>
+            </div>
           </div>
-          <div className="aside-content">
-            <h2>{t("global-researchers")}</h2>
-            <p style={{ marginBottom: "30px" }}>
-              O&rsquo;zR FA Tarix institutiga kelgan chet ellik mutaxassislar
-              (2016-2020)
-            </p>
-          </div>
-        </div>
-      </div>
-
+        );
+      })}
       <div className="container">
         <div className="global-researchers">
           <div className="top">
             <ul>
-              {Array(6)
-                .fill(2016)
-                .map((item, index) => {
-                  return (
-                    <li
-                      key={index}
-                      onClick={() => setYear(2016 + index)}
-                      className={2016 + index == year ? "active" : ""}
-                    >
-                      {2016 + index}
-                    </li>
-                  );
-                })}
+              {years.map((item) => {
+                return (
+                  <li
+                    key={item}
+                    onClick={() => setYear(item)}
+                    className={item == year ? "active" : ""}
+                  >
+                    {item}
+                  </li>
+                );
+              })}
             </ul>
           </div>
           <ul>
-            <li>
-              <h2>KWANG TAE LEE</h2>
-              <p>Central Eurasian Studies Department, Indiana University</p>
-            </li>
-            <li>
-              <h2>KWANG TAE LEE</h2>
-              <p>Central Eurasian Studies Department, Indiana University</p>
-            </li>
-            <li>
-              <h2>KWANG TAE LEE</h2>
-              <p>Central Eurasian Studies Department, Indiana University</p>
-            </li>
-            <li>
-              <h2>KWANG TAE LEE</h2>
-              <p>Central Eurasian Studies Department, Indiana University</p>
-            </li>
-            <li>
-              <h2>KWANG TAE LEE</h2>
-              <p>Central Eurasian Studies Department, Indiana University</p>
-            </li>
-            <li>
-              <h2>KWANG TAE LEE</h2>
-              <p>Central Eurasian Studies Department, Indiana University</p>
-            </li>
+            {kelganlarData
+              ?.filter((item) => item.kelgan_yil == year)
+              ?.map((item) => {
+                return (
+                  <li key={item?.id}>
+                    <h2>{item?.[`ism_${lang}`]}</h2>
+                    <p>{item?.[`ish_joy_${lang}`]}</p>
+                  </li>
+                );
+              })}
           </ul>
         </div>
       </div>

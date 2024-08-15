@@ -1,13 +1,47 @@
 import { useTranslation } from "react-i18next";
 import styles from "./home.module.css";
-import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
 import { BiMenu } from "react-icons/bi";
 import { navbarData } from "../../exports/navbar";
 import { GrDown } from "react-icons/gr";
 import axios from "axios";
 import PropTypes from "prop-types";
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+const settings = {
+  infinite: true,
+  speed: 500,
+  slidesToShow: 3,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 2500,
+  responsive: [
+    {
+      breakpoint: 766,
+      settings: {
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2500,
+      },
+    },
+    {
+      breakpoint: 456,
+      settings: {
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2500,
+      },
+    },
+  ],
+};
 export const Home = ({ setLoading, loading }) => {
   const { t, i18n } = useTranslation();
   const [showMenu, setShowMenu] = useState(false);
@@ -15,7 +49,17 @@ export const Home = ({ setLoading, loading }) => {
   const [newsData, setNewsData] = useState([]);
   const [quickLinksData, setQuickLinksData] = useState([]);
   const [centersData, setCentersData] = useState([]);
+  const [booksData, setBooksData] = useState([]);
+  const [langVal, setLangValue] = useState("uz");
+  const [showLang, setShowLang] = useState(false);
+  const search = useRef(null);
   const lang = i18n.language;
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    i18n.changeLanguage(langVal);
+    localStorage.setItem("i18lng", langVal);
+  }, [langVal]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,6 +77,9 @@ export const Home = ({ setLoading, loading }) => {
         await axios
           .get("/markazlar-va-bolimlar/markazlar_bolimlar/")
           .then((req) => setCentersData(req.data));
+        await axios
+          .get("/kutobxona/avtoreferat/")
+          .then((req) => setBooksData(req.data.results));
         setLoading(false);
       } catch (error) {
         setLoading("show-p");
@@ -40,17 +87,56 @@ export const Home = ({ setLoading, loading }) => {
     };
     fetchData();
   }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    search.current?.value?.trim() &&
+      navigate("/search/" + search.current?.value?.trim());
+  };
+
   if (loading === "show-p") {
     return <p className="show-p-error">{t("show-p-error")}</p>;
   }
+
   if (loading === true) {
     return <div className="loader"></div>;
   }
-  console.log(centersData);
 
   return (
     <section className={styles.section + " column"}>
       <header className={styles.header}>
+        <div className={styles["header-top"]}>
+          <form onSubmit={handleSubmit}>
+            <input type="text" placeholder={t("search")} ref={search} />
+          </form>
+          <div className={styles.lang}>
+            <div
+              className={styles.clc}
+              onClick={() => setShowLang((prev) => !prev)}
+            >
+              <img
+                src={`/assets/${langVal == "en" ? "english" : "uzbek"}.png`}
+                alt="flag"
+              />
+              <p> {langVal == "en" ? "English" : "O'zbekcha"}</p>
+            </div>
+            {showLang && (
+              <span
+                onClick={() => {
+                  setLangValue(langVal != "en" ? "en" : "uz");
+                  setShowLang((prev) => !prev);
+                }}
+                className={styles.change}
+              >
+                <img
+                  src={`/assets/${langVal != "en" ? "english" : "uzbek"}.png`}
+                  alt="flag"
+                />
+                <p> {langVal != "en" ? "English" : "O'zbekcha"}</p>
+              </span>
+            )}
+          </div>
+        </div>
         <div className={styles["header-bg"]}></div>
         <div className={styles.logo}>
           <img src="./assets/logo-light.png" alt="logo" />
@@ -158,8 +244,8 @@ export const Home = ({ setLoading, loading }) => {
               return (
                 <div className="card" key={item?.id}>
                   <Link to={"/centers-and-departments/" + item?.id}>
-                    <img src={item?.fotogalereya?.[0]?.img_url} alt="" />
-                    <h3>{t("centers" + item?.id)}</h3>
+                    <img src={item?.fotogalereya?.[0]?.img_url} />
+                    <h3>{item?.[`title_${lang}`]}</h3>
                   </Link>
                 </div>
               );
@@ -312,36 +398,25 @@ export const Home = ({ setLoading, loading }) => {
         </div>
       </div>
       <div className="container">
-        <div className="img-cards">
+        <div className="img-cards book-cards">
           <h2>{t("library")}</h2>
-          <div className="cards">
-            <div className="card">
-              <img src="./assets/book-img.jpg" alt="book img" />
-              <h3>Investing in a 21st Century Educational Research System</h3>
-              <img
-                src="./assets/icons/arrow.svg "
-                alt="arrow img"
-                className="arrow"
-              />
-            </div>
-            <div className="card">
-              <img src="./assets/book-img.jpg" alt="book img" />
-              <h3>Investing in a 21st Century Educational Research System</h3>
-              <img
-                src="./assets/icons/arrow.svg "
-                alt="arrow img"
-                className="arrow"
-              />
-            </div>
-            <div className="card">
-              <img src="./assets/book-img.jpg" alt="book img" />
-              <h3>Investing in a 21st Century Educational Research System</h3>
-              <img
-                src="./assets/icons/arrow.svg "
-                alt="arrow img"
-                className="arrow"
-              />
-            </div>
+          <div className="slider-container">
+            <Slider {...settings} className="cards">
+              {booksData?.map((item) => {
+                return (
+                  <div className="card" key={item?.id + Math.random()}>
+                    <img src={item?.cover_img} />
+                    <span>{t("abstracts")}</span>
+                    <div className="book-img-content">
+                      <h3>{item?.[`title_${lang}`]} </h3>
+                      <Link to={item?.file} target="_blank" className="arrow">
+                        <img src="./assets/icons/arrow.svg " alt="arrow img" />
+                      </Link>
+                    </div>
+                  </div>
+                );
+              })}
+            </Slider>
           </div>
         </div>
       </div>

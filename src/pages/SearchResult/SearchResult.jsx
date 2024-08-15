@@ -16,15 +16,23 @@ export const SearchResult = ({ setLoading, loading }) => {
         setLoading(true);
         await axios
           .get("/qoshimcha-malumotlar/yangiliklar/")
-          .then((req) => setNewsData(req.data.results));
+          .then((req) =>
+            setNewsData(
+              req.data.results.filter((item) =>
+                item?.[`title_${lang}`]
+                  ?.toLowerCase()
+                  ?.includes(value?.toLowerCase())
+              )
+            )
+          );
         setLoading(false);
       } catch (error) {
         setLoading("show-p");
       }
     };
     fetchData();
-  }, []);
-  console.log(newsData);
+  }, [value]);
+
   if (loading === "show-p") {
     return <p className="show-p-error">{t("show-p-error")}</p>;
   }
@@ -40,15 +48,9 @@ export const SearchResult = ({ setLoading, loading }) => {
             {t("search-results")}
             <q style={{ fontWeight: 600, marginLeft: "40px" }}>{value}</q>
           </h2>
-
           <div className="cards">
-            {newsData
-              .filter((item) =>
-                item?.[`title_${lang}`]
-                  ?.toLowerCase()
-                  ?.includes(value?.toLowerCase())
-              )
-              .map((item) => {
+            {newsData.length > 0 ? (
+              newsData?.map((item) => {
                 return (
                   <Link
                     to={"/news/" + item?.id}
@@ -68,7 +70,10 @@ export const SearchResult = ({ setLoading, loading }) => {
                     />
                   </Link>
                 );
-              })}
+              })
+            ) : (
+              <p>{t("no-search-result")}</p>
+            )}
           </div>
         </div>
       </div>

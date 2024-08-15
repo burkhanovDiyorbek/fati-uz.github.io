@@ -469,6 +469,7 @@ body {
 }
 
 .global-researchers {
+  width: 100%;
   .top {
     width: 100%;
     ul {
@@ -705,13 +706,42 @@ body {
   justify-content: center;
 }
 
+.book-cards {
+  overflow: hidden;
+  .card {
+    position: relative;
+  }
+  span {
+    display: inline-block;
+    padding: 5px 16px;
+    background: #2ecd7def;
+    font-weight: 900;
+    font-family: Poppins;
+    font-size: 12px;
+    margin-bottom: 10px;
+    position: absolute;
+    color: #fff;
+    border-radius: 20px;
+    top: 10px;
+    left: 10px;
+  }
+  img {
+    border-radius: 10px;
+    width: 100%;
+  }
+  .book-img-content {
+    padding-left: 10px;
+  }
+}
+
 .councils {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 15px;
+  width: 100%;
   li {
-    max-width: 600px;
+    max-width: 620px;
     padding: 15px 20px;
     display: flex;
     flex-direction: column;

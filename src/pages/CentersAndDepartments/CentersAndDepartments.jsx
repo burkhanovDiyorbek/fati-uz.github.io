@@ -16,7 +16,6 @@ export const CentersAndDepartments = ({ setLoading, loading }) => {
     const fetchData = async () => {
       try {
         setLoading(true);
-
         await axios
           .get("/markazlar-va-bolimlar/markazlar_bolimlar/" + id)
           .then((req) => setData(req.data));
@@ -36,7 +35,7 @@ export const CentersAndDepartments = ({ setLoading, loading }) => {
   }
   return (
     <section className={styles.section}>
-      <PageTop data={{ h2: "centers" + id }} />
+      <PageTop data={{ h2: data?.[`title_${lang}`] }} />
       <Slider slideData={data?.slider} />
       <div className="container">
         <div className="section-slice">
