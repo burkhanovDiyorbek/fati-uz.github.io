@@ -36,7 +36,7 @@ export const GlobalProjects = ({ setLoading, loading }) => {
       <PageTop data={{ h2: "global-projects" }} />
       <div className="container">
         <div className="section-slice">
-          <div className="row1">
+          <div className="row1 column">
             <h2>{data?.[0]?.[`title_${lang}`]}</h2>
             <img src={data?.[0]?.img_file} />
           </div>

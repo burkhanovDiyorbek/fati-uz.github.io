@@ -63,7 +63,7 @@ export const NewsAbout = ({ setLoading, loading }) => {
       </div>
       <div className="container">
         <div className="img-cards">
-          <h2>Latest News</h2>
+          <h2>{t("latest_news")}</h2>
           <div className="cards">
             {newsData?.reverse()?.map((item, index) => {
               if (index < 3 && item?.id != id) {

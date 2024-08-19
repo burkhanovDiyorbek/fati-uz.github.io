@@ -173,6 +173,11 @@
     }
   }
 }
+@media (max-width: 750px) {
+  .header-top {
+    display: none;
+  }
+}
 @media (max-width: 1150px) {
   .header-bg {
     background: #06eb1212;
